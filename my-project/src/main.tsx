@@ -4,6 +4,7 @@ import App from './App.tsx';
 import './styles/App.scss';
 import './styles/Searcher.scss';
 import './styles/HomePage.scss';
+import './styles/SplashScreen.scss';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

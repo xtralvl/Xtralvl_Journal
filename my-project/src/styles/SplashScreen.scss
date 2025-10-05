@@ -1,0 +1,44 @@
+.splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: white; /* fehér háttér */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    z-index: 9999;
+    flex-direction: column;
+    gap: 5rem;
+  }
+  
+  .effect {
+    width: 200px;
+    opacity: 0;
+    transform: translateY(-50px);
+    animation: logoFadeIn 1s ease forwards;
+    animation-delay: .5s;
+  }
+  
+  @keyframes effectSlide {
+    0% { left: -100%; }
+    100% { left: 100%; }
+  }
+  
+  .logo {
+    width: 200px;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: logoFadeIn 1s ease forwards;
+    animation-delay: 3s;
+  }
+  
+  @keyframes logoFadeIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
