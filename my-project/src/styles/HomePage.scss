@@ -1,0 +1,42 @@
+.homepage-container {
+    display: flex;
+    flex-direction: column;
+};
+
+.log-new-experience {
+    background: none;
+    border: 1px solid rgb(111, 49, 5);
+    border-radius: 15px;
+    height: 3rem;
+    justify-self: center;
+    margin: 16rem 3rem 8rem 3rem;
+    font-size: 1.2rem;
+    background-color: rgb(255, 255, 255);
+    color: rgb(71, 32, 3);
+};
+
+.homepage-logo-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 7rem;
+
+    .homepage-logo {
+        width: 4rem;
+        opacity: .5;
+        filter: invert(100%);
+    }
+};
+
+.logged-experiences-button-homepage {
+    background: none;
+    border: none;
+    border-radius: 15px;
+    height: auto;
+    justify-self: center;
+    margin: 0 7rem -1rem 7rem;
+    padding: .5rem;
+    font-size: .7rem;
+    background-color: rgb(230, 164, 58);
+    color: rgb(71, 32, 3);
+
+}
