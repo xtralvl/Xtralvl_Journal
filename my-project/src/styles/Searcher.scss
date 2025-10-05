@@ -29,6 +29,18 @@
             opacity: .5;
           }
 
+           input:focus {
+            outline: none; /* remove default */
+            border: 1px solid rgb(71, 32, 3); /* your custom border color */
+            box-shadow: 0 0 5px rgb(71, 32, 3); /* optional glow effect */
+          }
+
+          input {
+            transition: border 0.2s, box-shadow 0.2s;
+          }
+                    
+
+
         button {
             border: 1px solid black;
             background: none;
