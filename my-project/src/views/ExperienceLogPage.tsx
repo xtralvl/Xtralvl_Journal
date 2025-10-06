@@ -113,7 +113,10 @@ export default function ExperienceLogPage() {
             {photoUrl ? (
                 <img src={photoUrl} alt="preview" className="photo-preview"/>
             ) : (
+                <>
+                <img src="/img.svg" alt="" />
                 <span>Click here to upload a photo</span>
+                </>
             )}
             <input
                 type="file"
