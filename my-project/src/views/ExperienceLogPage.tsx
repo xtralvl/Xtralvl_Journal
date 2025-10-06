@@ -90,10 +90,12 @@ export default function ExperienceLogPage() {
         <div className="date-time">
             <div className="date">
             <label>Date:</label>
+            <br />
             <input type="date" value={date} onChange={(e) => setDate(e.target.value)} />
             </div>
             <div className="time">
             <label>Time:</label>
+            <br />
             <input type="time" value={time} onChange={(e) => setTime(e.target.value)} />
             </div>
         </div>

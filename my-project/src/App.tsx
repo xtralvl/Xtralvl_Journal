@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
-import HomePage from "./views/HomePage";
 import SplashScreen from './views/SplashScreen';
+import HomePage from "./views/HomePage";
 import ExperienceLogPage from './views/ExperienceLogPage';
+import FAQPage from './views/FAQPage';
 
 function App() {
   const [showSplash, setShowSplash] = useState(true);
@@ -13,8 +14,8 @@ function App() {
 
   return (
     <>
-      <ExperienceLogPage />
       {/*showSplash ? <SplashScreen /> : <HomePage /> */}
+      <FAQPage />
     </>
   );
 }

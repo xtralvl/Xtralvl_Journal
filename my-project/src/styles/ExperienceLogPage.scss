@@ -81,6 +81,10 @@
 
       }
 
+      .description {
+        margin-bottom: 2rem;
+      }
+
       .title {
         
         input {
@@ -125,6 +129,7 @@
         color: white;
         font-size: 1rem;
         transition: background-color 0.2s;
+        margin-bottom: 1rem;
 
   
         &.active {
@@ -156,6 +161,7 @@
             border: none;
             background: none;
             border-radius: 10px;
+            width: 4rem;
 
             img {
                 width: 2rem;
@@ -167,7 +173,7 @@
             &.active {
                 background-color: #f0c000;
                 color: black;
-                scale: (1.05);
+                scale: (1.08);
               }
         
         }
@@ -222,7 +228,6 @@
       .date-time {
         display: grid;
         grid-template-columns: 2fr;
-        gap: 1rem;
 
         input {
             margin-top: .5rem;
@@ -316,11 +321,13 @@
     .cancel {
         padding: .6rem;
         border-radius: 15px;
+        font-size: 1.1rem;
+
         
     }
 
     .save {
-        font-size: 1rem;
+        font-size: 1.1rem;
         padding: .6rem;
         border-radius: 15px;
 

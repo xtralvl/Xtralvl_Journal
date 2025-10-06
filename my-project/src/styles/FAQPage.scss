@@ -1,0 +1,117 @@
+.faq-layout {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url("/background-image.jpg") center/cover no-repeat; // optional
+    position: relative;
+    overflow-y: auto;
+  }
+  
+  .faqpage-container {
+    position: relative;
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: .5rem;
+    z-index: 1;
+  
+    &::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      z-index: 0;
+      pointer-events: none;
+    }
+  
+    .faq-page-content {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      padding: 0;
+      color: white;
+      position: relative;
+      z-index: 2;
+  
+      h1 {
+        margin: 0 0 1rem 0;
+        padding: 0;
+        font-size: 1.8rem;
+        text-align: center;
+      }
+  
+      .back-button-faqpage {
+        align-self: flex-start;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        width: 1.5rem;
+        padding: 0;
+        display: flex;
+        margin-bottom: 1rem;
+        filter: invert(100%);
+  
+        img {
+          width: 1.5rem;
+          transform: scaleX(-1); // flips horizontally
+        }
+      }
+    }
+  }
+
+  .answer {
+    font-style: italic;
+}
+  .question-wrapper {
+    display: flex;
+    margin: 0 1rem;
+
+  .toggle-icon {
+    border: none;
+    background: none;
+
+
+    img {
+        filter: invert(100%);
+        transform: rotate(90deg);
+        width: 2rem;
+        height: 2rem;
+    }
+}
+
+.toggle-icon img {
+    filter: invert(100%);
+    width: 2rem;
+    height: 2rem;
+    transition: transform 0.3s;
+    transform: rotate(90deg); /* default closed */
+}
+
+.toggle-icon img.open {
+    transform: rotate(270deg); /* open state */
+}
+
+.toggle-icon img.closed {
+    transform: rotate(90deg); /* closed state */
+}
+  
+}
+
+.answer {
+    line-height: 1.6;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.answer-displayed {
+    display: block;
+}
+
+.answer-hidden {
+    display: none;
+}
+  

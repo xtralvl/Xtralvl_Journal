@@ -6,6 +6,7 @@ import './styles/Searcher.scss';
 import './styles/HomePage.scss';
 import './styles/SplashScreen.scss';
 import './styles/ExperienceLogPage.scss';
+import './styles/FAQPage.scss';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
