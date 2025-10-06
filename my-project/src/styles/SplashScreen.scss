@@ -11,11 +11,11 @@
     overflow: hidden;
     z-index: 9999;
     flex-direction: column;
-    gap: 5rem;
+    gap: 4rem;
   }
   
   .effect {
-    width: 200px;
+    width: 15rem;
     opacity: 0;
     transform: translateY(-50px);
     animation: logoFadeIn 1s ease forwards;
@@ -28,7 +28,7 @@
   }
   
   .logo {
-    width: 200px;
+    width: 15rem;
     opacity: 0;
     transform: translateY(50px);
     animation: logoFadeIn 1s ease forwards;

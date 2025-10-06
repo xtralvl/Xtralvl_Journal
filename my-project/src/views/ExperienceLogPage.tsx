@@ -19,7 +19,7 @@ export default function ExperienceLogPage({handlePage}: ExperienceLogPageProps) 
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const [location, setLocation] = useState("");
-  const [photo, setPhoto] = useState<File | null>(null);
+  const [_photo, setPhoto] = useState<File | null>(null);
   const [photoUrl, setPhotoUrl] = useState<string | null>(null);
 
   const fileInputRef = useRef<HTMLInputElement>(null);
