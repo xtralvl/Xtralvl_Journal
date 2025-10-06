@@ -1,4 +1,4 @@
-import Searcher from '../components/Searcher';
+import Searcher from '../components/HomePageComponents/Searcher';
 
 export default function HomePage() {
     return (

@@ -5,6 +5,7 @@ import './styles/App.scss';
 import './styles/Searcher.scss';
 import './styles/HomePage.scss';
 import './styles/SplashScreen.scss';
+import './styles/ExperienceLogPage.scss';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

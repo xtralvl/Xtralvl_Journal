@@ -1,0 +1,328 @@
+
+  
+.experience-log-page-page-wrapper {
+
+    label,
+    span {
+        margin-bottom: .5rem;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+        outline: 2px solid #f0c000; // your orangy color
+        outline-offset: 2px;        // optional: space between outline and input
+}
+
+input:focus,
+textarea:focus {
+    outline: none; // remove default
+    box-shadow: 0 0 0 2px #f0c000;
+  }
+  
+
+
+    position: relative;
+    width: 100%;
+    min-height: 100%;
+    padding: .5rem 0;
+    background-image: url('/images/home-bg.jpg');
+    background-size: 100;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+  
+    // overlay
+    &::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.7);
+      z-index: 0;
+      pointer-events: none;
+    }
+  
+    .page-content {
+      position: relative;
+      z-index: 1;
+      color: white;
+      width: 90%;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+  
+      .back-button {
+        align-self: flex-start;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        width: 1.5rem;
+        padding: 0;
+        display: flex;
+        margin-bottom: 2rem;
+
+        img {
+            width: 1.5rem;
+            filter: invert(100%);
+            transform: scaleX(-1); // flips horizontally
+          }
+      
+      }
+
+      .title,
+      .description {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1rem;
+
+      }
+
+      .title {
+        
+        input {
+            background-color: rgba(255,255,255,0.3);
+
+            &:focus {
+                background-color: white;
+            }
+
+        }
+      }
+
+      .description {
+
+        textarea {
+            height: 4rem;
+            padding: .3rem;
+            background-color: rgba(255,255,255,0.3);
+            border-radius: 10px;
+
+            &:focus {
+                background-color: white;
+            }
+        }
+      }
+  
+  
+      .category-selector, .subcategories, .date-time, .location, .rating, .photo-upload, .buttons {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1rem;
+
+      }
+
+      .category-selector button {
+        padding: 0.4rem 1rem;
+        margin-right: 1rem;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+        background-color: rgba(255,255,255,0.2);
+        color: white;
+        font-size: 1rem;
+        transition: background-color 0.2s;
+
+  
+        &.active {
+          background-color: #f0c000;
+          color: black;
+        }
+  
+        &:hover {
+          background-color: white;
+        }
+      }
+
+      .subcategories {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        border-radius: 10px;
+        background-color: rgba(255,255,255,0.4);
+        margin-bottom: 2rem;
+
+        button {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: .6rem;
+            height: 4rem;
+            border: none;
+            background: none;
+            border-radius: 10px;
+
+            img {
+                width: 2rem;
+                padding: 0;
+                border-radius: 10px;
+
+            }
+
+            &.active {
+                background-color: #f0c000;
+                color: black;
+                scale: (1.05);
+              }
+        
+        }
+
+      }
+  
+      input, select {
+        padding: 0.4rem;
+        border-radius: 6px;
+        border: none;
+        font-size: 1rem;
+        margin-bottom: 1rem;
+      }
+  
+      .buttons {
+        display: flex;
+        gap: 1rem;
+  
+        button {
+          flex: 1;
+          border: none;
+          cursor: pointer;
+          font-weight: bold;
+          transition: background-color 0.2s;
+        }
+
+       
+  
+        .cancel {
+            background-color: rgba(255,255,255,0.4);
+            color: white;
+  
+          &:hover {
+            background-color: rgba(255,255,255,0.6);
+        }
+        }
+  
+        .save {
+            background-color: #f0c000;
+            color: black;
+  
+          &:hover {
+            background-color: #ffcc01;
+            color: rgb(255, 255, 255);
+
+        }
+        }
+      }
+
+      .date-time {
+        display: grid;
+        grid-template-columns: 2fr;
+        gap: 1rem;
+
+        input {
+            margin-top: .5rem;
+            background-color: rgba(255,255,255,0.3);
+
+            &:focus {
+                background-color: white;
+            }
+
+        }
+
+
+        .date {
+            grid-column: 1;
+
+    
+        }
+
+        .time {
+            grid-column: 2;
+        }
+        
+    }
+    
+    .location {
+        input {
+            background-color: rgba(255,255,255,0.3);
+            
+            &::placeholder {
+                color: black;
+            }
+
+            &:focus {
+                background-color: white;
+            }
+
+        }
+    }
+
+    .photo-upload-area {
+        background-color: rgba(255,255,255,0.3);
+        border-radius: 10px;
+        margin: 0 auto;
+        height: 10rem;
+        width: 15rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: .7rem;
+
+        .photo-preview {
+            width: auto;
+            height: 80%;
+            border-radius: 10px;
+        }
+
+    }
+
+    .delete-photo-button {
+        background-color: rgba(255,255,255,0.3);
+        width: 6rem;
+        border: none;
+        border-radius: 10px;
+        margin: .8rem auto 0 auto;
+        color: white;
+        padding: .2rem;
+
+        &:hover {
+            background-color: rgba(235, 134, 134, 0.6);
+
+        }
+        
+    }
+
+    .delete-photo-hide {
+        display: none;
+    }
+
+    .delete-photo-display {
+        display: block;
+    }
+
+
+    .cancel {
+        width: 70%;
+        margin: 2rem auto 0 auto;
+        padding: .6rem;
+        border-radius: 15px;
+    }
+
+    .save {
+        width: 70%;
+        margin: 0 auto;
+        padding: .6rem;
+        border-radius: 15px;
+        margin-bottom: 5rem;
+
+
+
+    }
+
+    }
+  }
+
+
+  
