@@ -16,7 +16,8 @@
     padding: .5rem;
     z-index: 1;
   
-    &::before {
+    .faqpage-container-overlay {
+       &::before {
       content: "";
       position: fixed;
       top: 0;
@@ -26,6 +27,9 @@
       background-color: rgba(0, 0, 0, 0.9);
       z-index: 0;
       pointer-events: none;
+    } 
+
+
     }
   
     .faq-page-content {

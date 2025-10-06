@@ -6,7 +6,12 @@ const subcategoriesMap = {
   skill: ["Physical", "Mental", "Survival", "Hard", "Creative"],
 };
 
-export default function ExperienceLogPage() {
+interface ExperienceLogPageProps {
+  handlePage: (page: string) => void;
+};
+
+
+export default function ExperienceLogPage({handlePage}: ExperienceLogPageProps) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");  
   const [category, setCategory] = useState<"adventure" | "skill" | null>(null);
@@ -17,7 +22,6 @@ export default function ExperienceLogPage() {
   const [photo, setPhoto] = useState<File | null>(null);
   const [photoUrl, setPhotoUrl] = useState<string | null>(null);
 
-  // ide kell a ref
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handlePhotoChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -136,7 +140,7 @@ export default function ExperienceLogPage() {
 
         {/* Buttons */}
         <div className="buttons">
-          <button className="cancel">Cancel</button>
+          <button onClick={() => handlePage("home")} className="cancel">Cancel</button>
           <button className="save">Save</button>
         </div>
       </div>

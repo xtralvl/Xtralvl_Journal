@@ -1,12 +1,20 @@
 import Searcher from '../components/HomePageComponents/Searcher';
 
-export default function HomePage() {
+interface HomePageProps {
+    handlePage: (page: string) => void;
+};
+
+export default function HomePage({handlePage}: HomePageProps) {
+
+    
     return (
         <>
         <div className='homepage-container' >
-        <Searcher />
+        <Searcher
+            handlePage={handlePage}
+        />
             
-        <button className='log-new-experience'>Log New Experience</button>
+        <button onClick={() => handlePage("addNew")} className='log-new-experience'>Log New Experience</button>
 
         <button className='logged-experiences-button-homepage' >Logged Experiences</button>
 

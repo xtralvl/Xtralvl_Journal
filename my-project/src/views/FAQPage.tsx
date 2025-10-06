@@ -1,6 +1,11 @@
 import { useState } from 'react';
 import FAQComponent from '../components/FAQPageComponents/FAQComponent';
 
+interface FAQPageProps {
+    handlePage: (page: string) => void;
+};
+
+
 const questions: string[] = [
     "What is an adventure? What is a skill?",
     "Will my logs stay if I clear my browser history?"
@@ -13,7 +18,7 @@ const answers: string[] =[
 ];
 
 
-export default function FAQPage() {
+export default function FAQPage({handlePage}: FAQPageProps) {
 
     const [openId, setOpenId] = useState<number | null>(null);
 
@@ -25,7 +30,7 @@ export default function FAQPage() {
         <div className="faqpage-container">
             <div className='faq-page-content'>
 
-            <button className="back-button-faqpage" ><img src="/next-icon.svg" alt="" /></button>
+            <button onClick={() => handlePage("home")} className="back-button-faqpage" ><img src="/next-icon.svg" alt="" /></button>
 
             <h1>Frequently asked questions</h1>
 
