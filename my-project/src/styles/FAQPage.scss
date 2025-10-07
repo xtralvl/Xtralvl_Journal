@@ -16,7 +16,7 @@
     padding: .5rem;
     z-index: 1;
   
-    .faqpage-container-overlay {
+  
        &::before {
       content: "";
       position: fixed;
@@ -29,9 +29,6 @@
       pointer-events: none;
     } 
 
-
-    }
-  
     .faq-page-content {
       display: flex;
       flex-direction: column;

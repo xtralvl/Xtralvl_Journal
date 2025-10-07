@@ -5,6 +5,8 @@ import ExperienceLogPage from './views/ExperienceLogPage';
 import ExperiencesListPage from './views/ExperiencesListPage';
 import FAQPage from './views/FAQPage';
 
+const body = document.querySelector('body');
+
 function App() {
   const [showSplash, setShowSplash] = useState(true);
   const [currentPage, setCurrentPage] = useState("home");
