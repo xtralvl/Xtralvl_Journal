@@ -5,8 +5,10 @@ import './styles/App.scss';
 import './styles/Searcher.scss';
 import './styles/HomePage.scss';
 import './styles/SplashScreen.scss';
-import './styles/ExperienceLogPage.scss';
+import './styles/AddExperience.scss';
 import './styles/FAQPage.scss';
+import './styles/SaveModal.scss';
+import './styles/CancelModal.scss';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

@@ -1,11 +1,9 @@
 import { useState, useEffect } from "react";
 import SplashScreen from './views/SplashScreen';
 import HomePage from "./views/HomePage";
-import ExperienceLogPage from './views/ExperienceLogPage';
+import ExperienceLogPage from './views/AddExperience';
 import ExperiencesListPage from './views/ExperiencesListPage';
 import FAQPage from './views/FAQPage';
-
-const body = document.querySelector('body');
 
 function App() {
   const [showSplash, setShowSplash] = useState(true);
