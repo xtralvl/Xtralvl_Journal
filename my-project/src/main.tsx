@@ -9,6 +9,7 @@ import './styles/AddExperience.scss';
 import './styles/FAQPage.scss';
 import './styles/SaveModal.scss';
 import './styles/CancelModal.scss';
+import './styles/ExperiencesListPage.scss';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

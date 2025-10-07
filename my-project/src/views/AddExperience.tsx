@@ -5,11 +5,11 @@ const subcategoriesMap = {
   skill: ["Physical", "Mental", "Survival", "Hard", "Creative"],
 };
 
-interface ExperienceLogPageProps {
+interface AddExperiencePageProps {
   handlePage: (page: string) => void;
 }
 
-export default function AddExperience({ handlePage }: ExperienceLogPageProps) {
+export default function AddExperience({ handlePage }: AddExperiencePageProps) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState<"adventure" | "skill" | null>(null);
@@ -56,8 +56,12 @@ export default function AddExperience({ handlePage }: ExperienceLogPageProps) {
     }
   };
 
-
-
+  const handlesShowListAfterSave = () => {
+    setShowSaveModal(false);
+    document.body.style.overflow = "auto"; // re-enable scroll + clicks
+    setTimeout(() => handlePage("list"), 50); // wait a frame before navigating
+  };
+  
   useEffect(() => {
     document.body.style.overflow = showSaveModal ? "hidden" : "auto";
   }, [showSaveModal]);
@@ -240,7 +244,7 @@ export default function AddExperience({ handlePage }: ExperienceLogPageProps) {
               <button onClick={() => handlePage("home")} className="go-to-home-page-button-savemodal">
                 Go to Home Page
               </button>
-              <button className="see-logged-experiences-button-savemodal">
+              <button onClick={handlesShowListAfterSave} className="see-logged-experiences-button-savemodal">
                 See logged experiences
               </button>
             </div>

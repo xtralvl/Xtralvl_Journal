@@ -28,7 +28,9 @@ function App() {
         <FAQPage handlePage={handlePage} />
       ) : currentPage === "addNew" ? (
         <ExperienceLogPage handlePage={handlePage} />
-      ) : <ExperiencesListPage />}
+      ) : currentPage === "list" ? (
+        <ExperiencesListPage handlePage={handlePage} />
+      ) : <HomePage handlePage={handlePage} />}
     </>
   );
   }
