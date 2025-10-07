@@ -21,6 +21,7 @@ export default function AddExperience({ handlePage }: ExperienceLogPageProps) {
   const [photoUrl, setPhotoUrl] = useState<string | null>(null);
   const [showCancelModal, setShowCancelModal] = useState(false);
   const [showSaveModal, setShowSaveModal] = useState(false);
+  const [error, setError] = useState(false);
 
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -44,11 +45,18 @@ export default function AddExperience({ handlePage }: ExperienceLogPageProps) {
     setShowCancelModal(false);
   };
 
-
-
   const handleshowSaveModal = () => {
-    setShowSaveModal(true);
+    if (title) {
+      setShowSaveModal(true);
+      setError(false);
+
+    } else {
+      setShowSaveModal(false);
+      setError(true)
+    }
   };
+
+
 
   useEffect(() => {
     document.body.style.overflow = showSaveModal ? "hidden" : "auto";
@@ -67,12 +75,14 @@ export default function AddExperience({ handlePage }: ExperienceLogPageProps) {
 
           {/* Title */}
           <div className="title">
-            <label>Title:</label>
+            <label className={error ? "error-state-title" : "no-error-state-title"} >Title:</label>
             <input
               type="text"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
+              className={error ? "error-state-title-input" : "no-error-state-title-input"}
             />
+            <span className={error ? "error-msg-title" : "no-error-msg-title"} >You must provide a title before save.</span>
           </div>
 
           {/* Description */}

@@ -89,6 +89,33 @@
             }
 
         }
+
+        .error-state-title {
+          color: red;
+        };
+
+        .no-error-state-title {
+          color: white;
+        };
+
+        .error-state-title-input {
+          border: 2px solid red;
+        };
+
+        .no-error-state-title-input {
+          border: none;
+        }
+
+        .error-msg-title {
+          display: block;
+          color: red;
+        };
+
+        .no-error-msg-title {
+          display: none;
+        }
+
+
       }
 
       .description {
