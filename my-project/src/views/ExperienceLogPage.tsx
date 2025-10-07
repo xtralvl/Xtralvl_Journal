@@ -39,7 +39,7 @@ export default function ExperienceLogPage({handlePage}: ExperienceLogPageProps) 
   return (
     <div className="experience-log-page-page-wrapper">
       <div className="page-content">
-        <BackButton />
+      <button onClick={() => handlePage("home")} className="back-button-addNew" ><img src="/next-icon.svg" alt="" /></button>
 
         {/* Title */}
         <div className="title">
@@ -107,7 +107,7 @@ export default function ExperienceLogPage({handlePage}: ExperienceLogPageProps) 
         {/* Location */}
         <div className="location">
           <label>Location:</label>
-          <input type="text" placeholder="Start typing in the location.." value={location} onChange={(e) => setLocation(e.target.value)} />
+          <input type="text" placeholder="Start typing.." value={location} onChange={(e) => setLocation(e.target.value)} />
         </div>
         
 
