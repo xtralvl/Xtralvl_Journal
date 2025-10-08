@@ -1,0 +1,77 @@
+.experience-element {
+    border: none;
+    display: grid;
+    grid-template-columns: 60% 40%;
+    border-radius: 10px;
+    background-color: rgba(255,255,255,0.8);
+    padding: .2rem;
+
+  
+    h2 {
+      font-size: 1.3rem;
+      margin: 0.4rem 0.3rem 0.5rem 0.3rem;
+    }
+  
+    h3,
+    h4 {
+      font-size: 0.7rem;
+      margin: 0;
+    }
+  
+    .experience-element-date-and-location-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.3rem;
+    }
+  
+    .experience-element-left-column {
+      display: flex;
+      flex-direction: column;   // stack content vertically
+      justify-content: space-between; // push button to bottom
+      padding: 0.5rem;
+      height: 100%; // make column fill the grid row
+      box-sizing: border-box; // include padding in height
+    }
+  
+    .experience-element-right-column {
+      padding: 0;
+      grid-column: 2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  
+  .experience-element-photo-column-hidden {
+    display: none;
+  }
+  
+  .experience-element-photo-column-shown {
+    display: block;
+  }
+  
+  .see-more-button-container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end; // ensures button sticks to bottom
+  }
+  
+  .see-more-button {
+    margin-top: 1rem; // push button to bottom of flex column
+    padding: .6em;
+    border-radius: 10px;
+    border: 1px solid black;
+    font-size: 1rem;
+    background-color: #f0c000;
+
+  }
+  
+  .experience-element-right-column-photo {
+    width: 90%;
+    height: auto;
+    border-radius: 10px;
+    margin: 0.4rem 0;
+  }
+  

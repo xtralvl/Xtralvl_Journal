@@ -10,6 +10,8 @@ import './styles/FAQPage.scss';
 import './styles/SaveModal.scss';
 import './styles/CancelModal.scss';
 import './styles/ExperiencesListPage.scss';
+import './styles/ExperiencesListPageEmpty.scss';
+import './styles/ExperienceListElement.scss';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

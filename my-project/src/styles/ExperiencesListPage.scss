@@ -1,25 +1,27 @@
-.experienceslist-page {
-    position: relative;
-    width: 100%;
-    max-width: 700px;
-    margin: 0 auto;
-    padding: .5rem;
-    z-index: 1;
+.experiences-list-page {
+    position: relative; // make this the positioning context
   
-  
-       &::before {
+    &::before {
       content: "";
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0, 0, 0, 0.9);
-      z-index: 0;
-      pointer-events: none;
-    } 
-
-    .back-button-experienceslist-page {
+      background-color: rgba(0, 0, 0, 0.8); // dark overlay
+      z-index: 1; // lower than content
+      pointer-events: none; // clicks go through to content
+    }
+  
+    .experiences-list-page-content {
+      position: relative; // needed to respect z-index
+      z-index: 2; // higher than overlay
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      padding: 0 1rem 1rem 1rem;
+  
+      .back-button-list {
         align-self: flex-start;
         background: transparent;
         border: none;
@@ -27,71 +29,14 @@
         width: 1.5rem;
         padding: 0;
         display: flex;
-        margin-bottom: 3rem;
+        margin: 1rem 0;
         filter: invert(100%);
   
         img {
           width: 1.5rem;
           transform: scaleX(-1); // flips horizontally
         }
-
+      }
     }
-
-    .experienceslist-page-empty-container {
-
-        .experienceslist-page-empty-content {
-
-            h1 {
-                margin: 0 0 3rem 0;
-            }
-
-            h2 {
-                margin: 0 0 2rem 0;
-            }
-
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            gap: 1rem;
-            padding: 1rem;
-            color: white;
-            position: relative;
-            z-index: 2;
-            text-align: center;
-
-
-            .log-new-experience-button-listpage {
-                background: none;
-                border: none;
-                border-radius: 15px;
-                justify-self: center;
-                margin: 3rem 3rem 8rem 3rem;
-                font-size: 1.2rem;
-                background-color: #f0c000;
-                color: rgb(71, 32, 3);
-                padding: 0.9rem 1.2rem;
-            
-            }
-    
-
-        }
-
-        .experienceslist-page-logo-container {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 5rem;
-        
-            .experienceslist-page-logo {
-                width: 6.5rem;
-                opacity: .4;
-                filter: invert(100%);
-            }
-        };
-        
-
-    }
-
-}
-
-
+  }
+  

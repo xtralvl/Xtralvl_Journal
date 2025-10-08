@@ -7,7 +7,7 @@ const subcategoriesMap = {
 
 interface AddExperiencePageProps {
   handlePage: (page: string) => void;
-}
+};
 
 export default function AddExperience({ handlePage }: AddExperiencePageProps) {
   const [title, setTitle] = useState("");
@@ -29,10 +29,15 @@ export default function AddExperience({ handlePage }: AddExperiencePageProps) {
     if (e.target.files && e.target.files[0]) {
       const file = e.target.files[0];
       setPhoto(file);
-      setPhotoUrl(URL.createObjectURL(file));
+  
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setPhotoUrl(reader.result as string); // ✅ Base64 string
+      };
+      reader.readAsDataURL(file); // Converts the image to Base64
     }
   };
-
+  
   const handlePhotoDelete = () => {
     setPhotoUrl("");
   };
@@ -45,16 +50,47 @@ export default function AddExperience({ handlePage }: AddExperiencePageProps) {
     setShowCancelModal(false);
   };
 
+  interface Experience {
+    id: string;
+    title: string;
+    description?: string;
+    category?: string | null;
+    subcategory?: string | null;
+    date?: string;
+    time?: string;
+    location?: string;
+    photo?: string | null;
+  };
 
-  const handleshowSaveModal = () => {
+  const currentExperience: Experience = {
+    id: Date.now().toString(),
+    title: title,
+    description: description,
+    category: category,
+    subcategory: subcategory,
+    date: date,
+    time: time,
+    location: location,
+    photo: photoUrl
+  };
+
+  const handleSave = () => {
     if (title) {
       setShowSaveModal(true);
       setError(false);
 
+      const storage = localStorage.getItem("savedExperiences");
+      const savedExperiences = storage ? JSON.parse(storage) : [];
+
+      const updatedExperiences = [...savedExperiences, currentExperience];
+
+      localStorage.setItem("savedExperiences", JSON.stringify(updatedExperiences));
+
     } else {
+      // if no title -> show error and scroll to top
       setShowSaveModal(false);
       setError(true)
-      window.scrollTo({top: 0, behavior: "smooth"})
+      window.scrollTo({top: 0, behavior: "smooth"}) // scrolls to the top if the user did not give a title when clicks on save
     }
   };
 
@@ -67,6 +103,9 @@ export default function AddExperience({ handlePage }: AddExperiencePageProps) {
   useEffect(() => {
     document.body.style.overflow = showSaveModal ? "hidden" : "auto";
   }, [showSaveModal]);
+
+
+
 
   return (
     <>
@@ -208,7 +247,7 @@ export default function AddExperience({ handlePage }: AddExperiencePageProps) {
             <button onClick={handleshowCancelModal} className="cancel">
               Cancel
             </button>
-            <button onClick={handleshowSaveModal} className="save">
+            <button onClick={handleSave} className="save">
               Save
             </button>
           </div>
