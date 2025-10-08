@@ -5,8 +5,8 @@ export default function SplashScreen() {
   return (
     <div className="splash-screen">
         <div className="effect">
-            <p>The world is filled with adventure - 
-            all you have to do is find it.</p>
+            <p>The world is filled with adventure.</p>
+            <p>All you have to do is find it.</p>
         </div>
 
       <img src={Logo} alt="Xtralvl Journal" className="logo" />

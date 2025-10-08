@@ -45,6 +45,7 @@ export default function AddExperience({ handlePage }: AddExperiencePageProps) {
     setShowCancelModal(false);
   };
 
+
   const handleshowSaveModal = () => {
     if (title) {
       setShowSaveModal(true);
@@ -53,6 +54,7 @@ export default function AddExperience({ handlePage }: AddExperiencePageProps) {
     } else {
       setShowSaveModal(false);
       setError(true)
+      window.scrollTo({top: 0, behavior: "smooth"})
     }
   };
 
