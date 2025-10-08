@@ -4,15 +4,30 @@ import HomePage from "./views/HomePage";
 import ExperienceLogPage from './views/AddExperience';
 import ExperiencesListPageEmpty from "./views/ExperiencesListPageEmpty";
 import ExperiencesListPage from './views/ExperiencesListPage';
+import ExperiencePage from './views/ExperiencePage';
 import FAQPage from './views/FAQPage';
+import type { Experience } from "./components/Types";
 
-function App() {
+export default function App() {
   const [showSplash, setShowSplash] = useState(true);
   const [currentPage, setCurrentPage] = useState("home");
   const [isThereList, _setIsThereList] = useState(true);
+  const [currentExperienceId, setCurrentExperienceId] = useState<string | null>(null);
+  const [savedExperiences, setSavedExperiences] = useState<Experience[]>([]);
 
-  const handlePage = (page: string) => {
+  // load saved experiences from localStorage once
+  useEffect(() => {
+    const data = localStorage.getItem("savedExperiences");
+    if (data) {
+      setSavedExperiences(JSON.parse(data));
+    }
+  }, []);
+
+  const handlePage = (page: string, id?: string) => {
     setCurrentPage(page);
+    if (id) {
+      setCurrentExperienceId(id);
+    }
   };
 
   useEffect(() => {
@@ -36,9 +51,12 @@ function App() {
         ) : (
           <ExperiencesListPageEmpty handlePage={handlePage} />
         )
+      ) : currentPage === "exp" ? (
+        <ExperiencePage
+          experience={savedExperiences.find(exp => exp.id === currentExperienceId)}
+          handlePage={handlePage}
+        />
       ) : null}
     </>
   );
 }
-
-export default App;

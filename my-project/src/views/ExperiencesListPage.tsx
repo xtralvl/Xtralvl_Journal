@@ -2,7 +2,7 @@ import ExperienceListElement from "../components/ExperienceListElement";
 import ExperiencesListPageEmpty from "./ExperiencesListPageEmpty";
 
 interface ExperiencesListPageProps {
-  handlePage: (page: string) => void;
+  handlePage: (page: string, id?: string) => void;
 }
 
 interface Experience {
@@ -22,7 +22,7 @@ export default function ExperiencesListPage({ handlePage }: ExperiencesListPageP
   const stored = localStorage.getItem("savedExperiences");
 
   // Parse it into an array or use empty array if null
-  const experiences: Experience[] = stored ? JSON.parse(stored) : [];
+  const experiences: Experience[] = stored ? JSON.parse(stored) : [];  
 
   return (
 

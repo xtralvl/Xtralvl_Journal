@@ -105,8 +105,6 @@ export default function AddExperience({ handlePage }: AddExperiencePageProps) {
   }, [showSaveModal]);
 
 
-
-
   return (
     <>
       <div className="experience-log-page-page-wrapper">

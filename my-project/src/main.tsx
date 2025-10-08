@@ -12,6 +12,7 @@ import './styles/CancelModal.scss';
 import './styles/ExperiencesListPage.scss';
 import './styles/ExperiencesListPageEmpty.scss';
 import './styles/ExperienceListElement.scss';
+import './styles/ExperiencePage.scss';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

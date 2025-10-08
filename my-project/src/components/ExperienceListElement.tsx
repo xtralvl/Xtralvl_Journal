@@ -1,4 +1,4 @@
-interface Experience {
+ interface Experience {
   id: string;
   title: string;
   description?: string;
@@ -13,7 +13,7 @@ interface Experience {
 interface ExperienceListElementProps {
   key: string;
   experience: Experience;
-  handlePage: (page: string) => void;
+  handlePage: (page: string, id?: string) => void;
 }
 
 // helper function to format date
@@ -22,6 +22,7 @@ const formatDate = (isoDate?: string) => {
   const [year, month, day] = isoDate.split("-");
   return `${month}/${day}/${year.slice(-2)}`;
 };
+
 
 export default function ExperienceListElement(props: ExperienceListElementProps) {
   const exp = props.experience;
@@ -35,7 +36,7 @@ export default function ExperienceListElement(props: ExperienceListElementProps)
           <h4>{exp.location}</h4>
         </div>
         <div className="see-more-button-container" >
-          <button className="see-more-button" >See more</button>
+          <button onClick={() => props.handlePage("exp", exp.id)} className="see-more-button" >See more</button>
         </div>
       </div>
 
