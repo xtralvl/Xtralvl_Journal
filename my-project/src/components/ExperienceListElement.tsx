@@ -18,7 +18,7 @@ interface ExperienceListElementProps {
 
 // helper function to format date
 const formatDate = (isoDate?: string) => {
-  if (!isoDate) return "";
+  if (!isoDate) return;
   const [year, month, day] = isoDate.split("-");
   return `${month}/${day}/${year.slice(-2)}`;
 };
@@ -35,26 +35,25 @@ export default function ExperienceListElement(props: ExperienceListElementProps)
           <h3>{formatDate(exp.date)}</h3>
           <h4>{exp.location}</h4>
         </div>
-        <div className="see-more-button-container" >
-          <button onClick={() => props.handlePage("exp", exp.id)} className="see-more-button" >See more</button>
+        <div className="see-more-button-container">
+          <button onClick={() => props.handlePage("exp", exp.id)} className="see-more-button">
+            See more
+          </button>
         </div>
       </div>
 
       <div className="experience-element-right-column">
-        <span
-          className={`experience-element-right-column-no-photo ${
-            exp.photo ? "experience-element-photo-column-hidden" : "experience-element-photo-column-shown"
-          }`}
-        >
-          No photo yet
-        </span>
-        <img
-          className={`experience-element-right-column-photo ${
-            exp.photo ? "experience-element-photo-column-shown" : "experience-element-photo-column-hidden"
-          }`}
-          src={exp.photo || ""}
-          alt={exp.photo ? exp.title : ""}
-        />
+        {exp.photo ? (
+          <img
+            className="experience-element-right-column-photo experience-element-photo-column-shown"
+            src={exp.photo}
+            alt={exp.title}
+          />
+        ) : (
+          <span className="experience-element-right-column-no-photo">
+            No photo yet
+          </span>
+        )}
       </div>
     </div>
   );

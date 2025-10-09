@@ -22,7 +22,7 @@
 
       display: flex;
       flex-direction: column;
-      gap: 1rem;
+      gap: .5rem;
       padding: 0;
       color: white;
       position: relative;
@@ -94,12 +94,37 @@
 
     .experience-photo {
         border-radius: 10px;
+        margin-bottom: 2rem
+    };
+
+    .modifying-buttons-experience-page {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+
+
+      button {
+        padding: .7rem 1.4rem;
+        border-radius: 10px;
+        border: none;
+        font-size: 1rem;
+        color: black;
+        width: 80%;
+      }
+
+      .edit-button-experience-page {
+        background: white;
+      }
+
+      .delete-button-experience-page {
+        background: rgb(239, 121, 121);
+      }
+
     }
-
-
-
-
-    }
+  }
 
 
 

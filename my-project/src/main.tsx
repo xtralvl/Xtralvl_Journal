@@ -13,6 +13,7 @@ import './styles/ExperiencesListPage.scss';
 import './styles/ExperiencesListPageEmpty.scss';
 import './styles/ExperienceListElement.scss';
 import './styles/ExperiencePage.scss';
+import './styles/DeleteExperienceModal.scss';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

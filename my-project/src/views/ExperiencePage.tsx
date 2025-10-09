@@ -1,8 +1,10 @@
 import type { Experience } from "../components/Types";
+import { useEffect, useState } from "react";
 
 interface ExperiencePageProps {
     experience: Experience | undefined;
     handlePage: (page: string) => void;
+    handleDelete: (id: string) => void;
 };
 
 // helper function to format date
@@ -14,7 +16,29 @@ const formatDate = (isoDate?: string) => {
 
 
 export default function ExperiencePage(props: ExperiencePageProps) {
-    if (!props.experience) return;
+    const [showDeleteModal, setShowDeleteModal] = useState(false);
+
+    const handleshowDeleteModal = () => {
+      setShowDeleteModal(true);
+    };
+  
+    const handleshowDeleteModalClose = () => {
+      setShowDeleteModal(false);
+    };
+
+    const handleDeleteClick = () => {
+      props.handleDelete(props.experience!.id);
+    };
+    
+    useEffect(() => {
+      if (showDeleteModal) {
+        document.body.style.overflow = "hidden";
+      } else {
+        document.body.style.overflow = "auto";
+      }
+    }, [showDeleteModal]);
+    
+    if (!props.experience) return <div>Experience not found</div>;
     return (
         <div className="experience-page-container" >
           <div className="experience-page-content" >
@@ -26,8 +50,8 @@ export default function ExperiencePage(props: ExperiencePageProps) {
 
           <div className="category-container">
             <p className={`category ${props.experience.category === "skill" ? "skill-tag" : "adventure-tag"}`} >{props.experience.category}</p>
-            <p className="subcategory" >{`(${props.experience.subcategory?.toLocaleLowerCase()})`}</p>
-            <img src={`/${props.experience.subcategory!.toLowerCase()}.svg`} alt="" />
+            <p className="subcategory">{props.experience.subcategory ? `(${props.experience.subcategory.toLowerCase()})` : ""}</p>
+            {props.experience.subcategory && <img src={`/${props.experience.subcategory.toLowerCase()}.svg`} alt={props.experience.subcategory} />}
           </div>
           
           <p>{props.experience.location}</p>
@@ -37,9 +61,33 @@ export default function ExperiencePage(props: ExperiencePageProps) {
             <p>{props.experience.time}</p>
           </div>
 
-          <img className="experience-photo" src={props.experience.photo || "/placeholder.svg"} alt={props.experience.title} />
+          {props.experience.photo && <img className="experience-photo" src={props.experience.photo} alt={props.experience.title} />}
 
-          
+          <div className="modifying-buttons-experience-page" >
+            <button className="edit-button-experience-page" >Edit</button>
+            <button className="delete-button-experience-page" onClick={handleshowDeleteModal} >Delete</button>
           </div>
+
+          </div>
+
+          {/* Delete Modal */}
+          {showDeleteModal && (
+        <>
+          <div className="delete-modal-backdrop"></div>
+          <div className="delete-modal">
+          <p>Are you sure you want to delete this experience?</p>
+          <span>This experience cannot be restored after you delete it.</span>
+            <div className="delete-modal-buttons">
+            <button className="dont-delete-button-delete-modal" onClick={handleshowDeleteModalClose}>
+                No, I don't delete it
+              </button>
+              <button onClick={handleDeleteClick}
+                      className="yes-delete-button-delete-modal">
+                Yes, I want to delete it
+              </button>
+            </div>
+          </div>
+        </>
+      )}
         </div>
 );}

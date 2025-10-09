@@ -1,4 +1,5 @@
 import { useRef, useState, useEffect } from "react";
+import type { Experience } from "../components/Types";
 
 const subcategoriesMap = {
   adventure: ["Land", "Water", "Air", "Mountain", "Snow"],
@@ -7,9 +8,10 @@ const subcategoriesMap = {
 
 interface AddExperiencePageProps {
   handlePage: (page: string) => void;
+  handleAddExperience: (newExp: Experience) => void;
 };
 
-export default function AddExperience({ handlePage }: AddExperiencePageProps) {
+export default function AddExperience({ handlePage, handleAddExperience }: AddExperiencePageProps) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState<"adventure" | "skill" | null>(null);
@@ -78,6 +80,9 @@ export default function AddExperience({ handlePage }: AddExperiencePageProps) {
     if (title) {
       setShowSaveModal(true);
       setError(false);
+      handleAddExperience(currentExperience);
+
+      localStorage.clear()
 
       const storage = localStorage.getItem("savedExperiences");
       const savedExperiences = storage ? JSON.parse(storage) : [];
@@ -85,6 +90,7 @@ export default function AddExperience({ handlePage }: AddExperiencePageProps) {
       const updatedExperiences = [...savedExperiences, currentExperience];
 
       localStorage.setItem("savedExperiences", JSON.stringify(updatedExperiences));
+      console.log(storage)
 
     } else {
       // if no title -> show error and scroll to top

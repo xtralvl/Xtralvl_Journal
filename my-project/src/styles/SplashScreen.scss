@@ -13,32 +13,39 @@
     flex-direction: column;
     gap: 5rem;
   }
-  
-  .effect {
-    width: 15rem;
-    opacity: 0;
-    transform: translateY(-50px);
-    animation: logoFadeIn 1s ease forwards;
-    animation-delay: .5s;
-  }
-  
-  @keyframes effectSlide {
-    0% { left: -100%; }
-    100% { left: 100%; }
-  }
-  
-  .logo {
-    width: 15rem;
-    opacity: 0;
-    transform: translateY(50px);
-    animation: logoFadeIn 1s ease forwards;
-    animation-delay: 3s;
-  }
-  
-  @keyframes logoFadeIn {
-    to {
-      opacity: 1;
-      transform: translateY(0);
+
+  .splash-screen-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+
+    .effect {
+      width: 15rem;
+      opacity: 0;
+      transform: translateY(-50px);
+      animation: logoFadeIn 1s ease forwards;
+      animation-delay: .5s;
     }
+    
+    @keyframes effectSlide {
+      0% { left: -100%; }
+      100% { left: 100%; }
+    }
+    
+    .logo {
+      width: 15rem;
+      opacity: 0;
+      transform: translateY(50px);
+      animation: logoFadeIn 1s ease forwards;
+      animation-delay: 3s;
+    }
+    
+    @keyframes logoFadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
   }
   

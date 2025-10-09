@@ -21,6 +21,7 @@ export default function HomePage({handlePage}: HomePageProps) {
         <div className='homepage-logo-container'>
             <img className="homepage-logo" src="/logo.png" alt="" />
         </div>
+        
         </div>
         </>
     )
