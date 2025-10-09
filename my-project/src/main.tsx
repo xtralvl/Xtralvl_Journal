@@ -14,6 +14,7 @@ import './styles/ExperiencesListPageEmpty.scss';
 import './styles/ExperienceListElement.scss';
 import './styles/ExperiencePage.scss';
 import './styles/DeleteExperienceModal.scss';
+import './styles/RandomExperience.scss';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

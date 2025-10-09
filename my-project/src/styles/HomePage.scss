@@ -1,42 +1,77 @@
 .homepage-container {
     display: flex;
     flex-direction: column;
-};
-
-.log-new-experience {
-    background: none;
-    border: 1px solid rgb(111, 49, 5);
-    border-radius: 15px;
+  }
+  
+  /* 🟡 PRIMARY button — main action (Log new experience) */
+  .log-new-experience {
+    background-color: #f0c000; /* bright yellow */
+    border: 1px solid black;
+    border-radius: 100px;
     height: 3rem;
     justify-self: center;
-    margin: 16rem 3rem 8rem 3rem;
+    margin: 15rem 2.5rem 3rem 2.5rem;
     font-size: 1.2rem;
-    background-color: rgb(255, 255, 255);
-    color: rgb(71, 32, 3);
-};
-
-.homepage-logo-container {
+    color: black;
+    font-weight: 600;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    transition: all 0.25s ease;
+  }
+  
+  .log-new-experience:hover {
+    background-color: hsl(45, 95%, 40%); /* darker gold on hover */
+    transform: translateY(-2px);
+  }
+  
+  /* 🟤 SECONDARY button — view saved experiences */
+  .logged-experiences-button-homepage {
+    background-color: hsl(10, 70%, 20%); /* deep brown */
+    border: none;
+    border-radius: 12px;
+    justify-self: center;
+    margin: 0 6.5rem 3rem 6.5rem;
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+    color: white;
+    font-weight: 500;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+    transition: all 0.25s ease;
+  }
+  
+  .logged-experiences-button-homepage:hover {
+    background-color: hsl(10, 70%, 25%);
+    transform: translateY(-2px);
+  }
+  
+  /* 🟡 TERTIARY button — random experience */
+  .random-experience-button-homepage {
+    background-color: hsl(60, 30%, 95%); /* very light cream */
+    border: 1px solid hsl(50, 40%, 70%);
+    border-radius: 100px;
+    justify-self: center;
+    margin: 2rem 6.5rem 3rem 6.5rem;
+    padding: 0.5rem 1.2rem;
+    font-size: 0.8rem;
+    color: hsl(10, 70%, 20%); /* dark brown text for contrast */
+    font-weight: 500;
+    transition: all 0.25s ease;
+  }
+  
+  .random-experience-button-homepage:hover {
+    background-color: hsl(60, 30%, 90%);
+    transform: translateY(-1px);
+  }
+  
+  /* 🟤 Logo */
+  .homepage-logo-container {
     display: flex;
     justify-content: center;
-    margin-top: 7rem;
-
-    .homepage-logo {
-        width: 5.5rem;
-        opacity: .5;
-        filter: invert(100%);
-    }
-};
-
-.logged-experiences-button-homepage {
-    background: none;
-    border: none;
-    border-radius: 15px;
-    height: auto;
-    justify-self: center;
-    margin: 0 7rem -1rem 7rem;
-    padding: .5rem;
-    font-size: .7rem;
-    background-color: rgb(230, 164, 58);
-    color: rgb(71, 32, 3);
-
-}
+    margin: 0;
+  }
+  
+  .homepage-logo {
+    width: 5.5rem;
+    opacity: 0.4;
+    filter: invert(100%);
+  }
+  

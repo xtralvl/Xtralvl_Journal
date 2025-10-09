@@ -6,9 +6,10 @@ import ExperiencesListPage from "./views/ExperiencesListPage";
 import ExperiencePage from "./views/ExperiencePage";
 import FAQPage from "./views/FAQPage";
 import AddExperience from "./views/AddExperience";
+import RandomExperience from "./views/RandomExperience";
 import type { Experience } from "./components/Types";
 
-type Page = "home" | "faq" | "addNew" | "list" | "emptyList" | "exp";
+type Page = "home" | "faq" | "addNew" | "list" | "emptyList" | "exp" | "random";
 
 export default function App() {
   const [showSplash, setShowSplash] = useState(true);
@@ -85,6 +86,13 @@ export default function App() {
           handleDelete={handleDelete}
         />
       );
+
+      case "random":
+      return (
+        <RandomExperience
+        handlePage={handlePage}
+        />
+      )
 
     default:
       return null;
