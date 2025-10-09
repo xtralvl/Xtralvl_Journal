@@ -104,12 +104,18 @@
     .generated-experience {
         color: #f0c000;
         font-size: 1.6rem;
-        margin-top: 5rem;
-        margin-bottom: 10rem;
+        margin-top: 3rem;
         align-self: center;
     };
 
-    .generated-experience-hide {
+    .generated-experience-description {
+        color: white;
+        line-height: 1.5;
+        margin-bottom: 6rem;
+    }
+
+    .generated-experience-hide,
+    .generated-experience-description-hide {
         display: none;
     }
 
@@ -120,6 +126,7 @@
         background-color: rgb(255, 255, 255, .8);
         border: none;
         font-size: 1rem;
+        color: black;
 
       }
 
