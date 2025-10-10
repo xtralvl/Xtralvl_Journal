@@ -1,109 +1,147 @@
-  .faqpage-container {
-    position: relative;
-    width: 100%;
-    max-width: 700px;
-    margin: 0 auto;
-    padding: .5rem;
-    z-index: 1;
-  
-  
-       &::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.9);
-      z-index: 0;
-      pointer-events: none;
-    } 
+.faqpage-container {
+  position: relative;
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0.5rem;
+  z-index: 1;
+  font-family: "Inter", system-ui, sans-serif;
 
-    .faq-page-content {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
+  /* Overlay with subtle blur fade */
+  &::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(6px);
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0;
+    animation: fadeOverlay 0.5s ease forwards;
+  }
+
+  @keyframes fadeOverlay {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .faq-page-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1rem;
+    color: white;
+    position: relative;
+    z-index: 2;
+
+    /* Fade-up animation for children */
+    > * {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 0.5s ease forwards;
+    }
+
+    > *:nth-child(1) { animation-delay: 0.1s; }
+    > *:nth-child(2) { animation-delay: 0.2s; }
+    > *:nth-child(3) { animation-delay: 0.3s; }
+    > *:nth-child(4) { animation-delay: 0.4s; }
+
+    h1 {
+      margin: 0 0 1rem 0;
       padding: 0;
-      color: white;
-      position: relative;
-      z-index: 2;
-  
-      h1 {
-        margin: 0 0 1rem 0;
-        padding: 0;
-        font-size: 2rem;
-        text-align: center;
-      }
-  
-      .back-button-faqpage {
-        align-self: flex-start;
-        background: transparent;
-        border: none;
-        cursor: pointer;
+      font-size: 2rem;
+      text-align: center;
+    }
+
+    .back-button-faqpage {
+      align-self: flex-start;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      width: 1.5rem;
+      padding: 0;
+      display: flex;
+      margin-bottom: 1rem;
+      filter: invert(100%);
+
+      img {
         width: 1.5rem;
-        padding: 0;
-        display: flex;
-        margin-bottom: 1rem;
-        filter: invert(100%);
-  
-        img {
-          width: 1.5rem;
-          transform: scaleX(-1); // flips horizontally
-        }
+        transform: scaleX(-1);
       }
     }
   }
-
-  .answer {
-    font-style: italic;
 }
-  .question-wrapper {
-    display: flex;
-    margin: 0 1rem;
 
+/* Fade-up keyframes */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Question/Answer styles */
+.question-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 0.8rem 1rem;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+  }
 
   .toggle-icon {
     border: none;
     background: none;
 
-
     img {
-        filter: invert(100%);
-        transform: rotate(90deg);
-        width: 2rem;
-        height: 2rem;
+      filter: invert(100%);
+      width: 2rem;
+      height: 2rem;
+      transition: transform 0.3s;
+      transform: rotate(90deg); /* default closed */
     }
-}
 
-.toggle-icon img {
-    filter: invert(100%);
-    width: 2rem;
-    height: 2rem;
-    transition: transform 0.3s;
-    transform: rotate(90deg); /* default closed */
-}
+    img.open {
+      transform: rotate(270deg); /* open state */
+    }
 
-.toggle-icon img.open {
-    transform: rotate(270deg); /* open state */
-}
-
-.toggle-icon img.closed {
-    transform: rotate(90deg); /* closed state */
-}
-  
+    img.closed {
+      transform: rotate(90deg); /* closed state */
+    }
+  }
 }
 
 .answer {
-    line-height: 1.6;
-    margin-left: 1rem;
-    margin-right: 1rem;
-}
+  line-height: 1.6;
+  margin: 0.5rem 1rem;
+  font-style: italic;
+  color: #f5f5f5;
+  transition: all 0.3s ease;
 
-.answer-displayed {
+  &.answer-displayed {
     display: block;
-}
+    opacity: 1;
+    transform: translateY(0);
+  }
 
-.answer-hidden {
+  &.answer-hidden {
     display: none;
+    opacity: 0;
+    transform: translateY(10px);
+  }
 }
-  
