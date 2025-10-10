@@ -1,63 +1,90 @@
-/* Backdrop: darkens the background */
+/* Backdrop: dark blurred background */
 .delete-modal-backdrop {
-    position: fixed;
-    inset: 0; /* top:0; right:0; bottom:0; left:0 */
-    background-color: rgba(0, 0, 0, 0.6);
-    z-index: 999; /* ensures it's above everything else */
-    backdrop-filter: blur(2px); /* optional slight blur effect */
+  position: fixed;
+  inset: 0; 
+  background-color: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  z-index: 999; 
+}
+
+/* Modal container */
+.delete-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(20, 20, 20, 0.95);
+  padding: 2rem 1.5rem;
+  border-radius: 20px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+  z-index: 1000; 
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  color: white;
+  animation: fadeInScale 0.25s ease-out;
+
+  p {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
   }
-  
-  /* Modal container */
-  .delete-modal {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: white;
-    padding: 2rem;
-    border-radius: 1rem;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-    z-index: 1000; /* above the backdrop */
-    width: 90%;
-    text-align: center;
-    animation: fadeInScale 0.25s ease-out;
+
+  span {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
   }
-  
-  /* Buttons inside modal */
-  .delete-modal-buttons {
-    margin-top: 1.5rem;
-    display: flex;
-    justify-content: space-between;
-    gap: 1rem;
-  }
-  
-  .dont-delete-button-delete-modal,
-  .yes-delete-button-delete-modal {
+}
+
+/* Buttons inside modal */
+.delete-modal-buttons {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+
+  button {
     flex: 1;
     padding: 0.75rem 1rem;
     border: none;
-    border-radius: 0.5rem;
+    border-radius: 100px;
     cursor: pointer;
     font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.2s ease;
   }
-  
+
   .dont-delete-button-delete-modal {
-    background-color: #ccc;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: black;
+    box-shadow: 0 6px 15px rgba(255, 255, 255, 0.3);
+
+    &:hover {
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 8px 20px rgba(255, 255, 255, 0.5);
+    }
   }
-  
+
   .yes-delete-button-delete-modal {
-    background-color: hsl(0, 70%, 50%);
+    background-color: #ef7979;
     color: white;
-  }
-  
-  @keyframes fadeInScale {
-    from {
-      opacity: 0;
-      transform: translate(-50%, -50%) scale(0.9);
-    }
-    to {
-      opacity: 1;
-      transform: translate(-50%, -50%) scale(1);
+    box-shadow: 0 6px 15px rgba(239, 121, 121, 0.3);
+
+    &:hover {
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 8px 20px rgba(239, 121, 121, 0.5);
     }
   }
-  
+}
+
+/* Fade-in + scale animation */
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
