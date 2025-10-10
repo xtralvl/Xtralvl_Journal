@@ -2,67 +2,96 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-      
-
-    form {
-        display: flex;
-        border: none;
-        height: 1.6rem;
-
-        button,
-        input {
-            height: auto;
-        }    
-
-        input {
-            border: none;
-            border: 1px solid rgb(111, 49, 5);
-            border-radius: 0 5px 5px 0;
-            width: 12rem;
-            padding-left: .3rem;
-            background: none;
-        
-        }
-
-        input::placeholder {
-            color: rgb(71, 32, 3);
-            opacity: .5;
-          }
-
-           input:focus {
-            outline: none; /* remove default */
-            border: 1px solid rgb(71, 32, 3); /* your custom border color */
-            box-shadow: 0 0 5px rgb(71, 32, 3); /* optional glow effect */
-          }
-
-          input {
-            transition: border 0.2s, box-shadow 0.2s;
-          }
-                    
-
-
-        button {
-            border: 1px solid black;
-            background: none;
-            border-right: none;
-            border-radius: 5px 0 0 5px;
-        }
-
-    }
-
-    .submit-button {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        
-        img {
-            width: 1rem;
-        }
-    }
-}
-
-.faq-button {
+    padding: 0.6rem 1rem;
+    backdrop-filter: blur(6px);
     background: none;
     border: none;
-    color: rgb(111, 49, 5);
-}
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    border-radius: 15px;
+    width: 100vw;
+
+  }
+  
+  /* 🔍 Search form */
+  .searcher-container form {
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    transition: all 0.3s ease;
+    
+  }
+  
+  .searcher-container form:hover {
+    background: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.35);
+  }
+  
+  /* 🧭 Search input */
+  .searcher-container input {
+    border: none;
+    width: 12rem;
+    padding: 0.35rem 0.6rem;
+    font-size: 0.85rem;
+    background: transparent;
+    color: #fffaf3;
+    transition: all 0.3s ease;
+  }
+  
+  .searcher-container input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+    font-style: italic;
+  }
+  
+  .searcher-container input:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.2);
+  }
+  
+  /* 🔘 Search button */
+  .searcher-container button {
+    border: none;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.3rem 0.6rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease, transform 0.2s ease;
+  }
+  
+  .searcher-container button:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.05);
+  }
+  
+  .submit-button img {
+    width: 1rem;
+    filter: invert(100%);
+    opacity: 0.8;
+  }
+  
+  /* ❓ FAQ button */
+  .faq-button {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 10px;
+    color: #fffaf3;
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 0.4rem .8rem !important;
+    letter-spacing: 0.3px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+  
+  .faq-button:hover {
+    background: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.35);
+    transform: translateY(-1px);
+  }
+  

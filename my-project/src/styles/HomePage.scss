@@ -1,77 +1,169 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 .homepage-container {
-    display: flex;
-    flex-direction: column;
+  display: grid;
+  justify-content: center;
+  min-height: 100%;
+  min-height: 100vh;
+  position: relative;
+  font-family: "Inter", system-ui, sans-serif;
+  text-align: center;
+  padding: 0.5rem 1rem 4rem 1rem;
+  color: #fffaf4;
+  background: url("/autumn-bg.jpg") no-repeat center center/cover;
+  overflow: hidden;
+  isolation: isolate; /* ensures the overlay doesn’t clip */
+}
+
+/* 🔲 Dark overlay layer */
+.homepage-container::before {
+  content: "";
+  position: fixed; /* ✅ fixed ensures full page coverage even if scroll exists */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* make darker or lighter */
+  z-index: -1;
+}
+
+/* Everything else stays above the overlay */
+.homepage-container > * {
+  position: relative;
+  z-index: 1;
+}
+
+.searcher-component-container {
+  justify-self: flex-start;
+  margin: 0;
+}
+
+.first-row-homepage,
+.second-row-homepage,
+.third-row-homepage {
+  width: 100%;
+}
+
+.first-row-homepage {
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.second-row-homepage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 8rem;
+}
+
+/* 🟡 Log New Experience — primary button */
+.log-new-experience {
+  background: linear-gradient(145deg, #ffcc33, #e59e00);
+  border: none;
+  border-radius: 100px;
+  width: 80%;
+  max-width: 340px;
+  height: 3.2rem;
+  font-size: 1.1rem;
+  color: #3a2100;
+  font-weight: 700;
+  box-shadow: 0 4px 15px rgba(255, 175, 0, 0.6);
+  transition: all 0.25s ease;
+  margin-top: 5rem;
+  margin-bottom: 3rem;
+}
+
+.log-new-experience:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 22px rgba(255, 200, 0, 0.45);
+}
+
+/* 🟤 Logged Experiences — secondary button */
+.logged-experiences-button-homepage {
+  background: hsl(20, 40%, 20%);
+  border-radius: 12px;
+  border: 1px solid hsl(20, 40%, 30%);
+  width: 65%;
+  padding: 0.8rem 1.2rem;
+  font-size: 0.95rem;
+  color: #fdfaf7;
+  font-weight: 500;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.25);
+  transition: all 0.25s ease;
+}
+
+.logged-experiences-button-homepage:hover {
+  background: hsl(20, 40%, 25%);
+  transform: translateY(-2px);
+}
+
+/* ⚪ Random experience — tertiary button */
+.random-experience-button-homepage {
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 50px;
+  width: 65%;
+  padding: 0.6rem 1.2rem;
+  color: hsl(20, 50%, 15%);
+  font-weight: 500;
+  font-size: 0.9rem;
+  backdrop-filter: blur(4px);
+  transition: all 0.25s ease;
+}
+
+.random-experience-button-homepage:hover {
+  background: rgba(255, 255, 255, 0.95);
+  transform: scale(1.04);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* 🌄 Logo */
+.homepage-logo-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.homepage-logo {
+  margin-top: auto;
+  width: auto;
+  height: 3rem;
+  opacity: 0.4;
+  filter: brightness(0) invert(1);
+  padding: 0;
+};
+
+/* ✨ Fade-up animation */
+.homepage-container > * {
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards;
+}
+
+.homepage-container > *:nth-child(1) {
+  animation-delay: 0.2s;
+}
+.homepage-container > *:nth-child(2) {
+  animation-delay: 0.4s;
+}
+.homepage-container > *:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
   }
-  
-  /* 🟡 PRIMARY button — main action (Log new experience) */
-  .log-new-experience {
-    background-color: #f0c000; /* bright yellow */
-    border: 1px solid black;
-    border-radius: 100px;
-    height: 3rem;
-    justify-self: center;
-    margin: 15rem 2.5rem 3rem 2.5rem;
-    font-size: 1.2rem;
-    color: black;
-    font-weight: 600;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-    transition: all 0.25s ease;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  .log-new-experience:hover {
-    background-color: hsl(45, 95%, 40%); /* darker gold on hover */
-    transform: translateY(-2px);
-  }
-  
-  /* 🟤 SECONDARY button — view saved experiences */
-  .logged-experiences-button-homepage {
-    background-color: hsl(10, 70%, 20%); /* deep brown */
-    border: none;
-    border-radius: 12px;
-    justify-self: center;
-    margin: 0 6.5rem 3rem 6.5rem;
-    padding: 0.6rem 1.2rem;
-    font-size: 0.9rem;
-    color: white;
-    font-weight: 500;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.2);
-    transition: all 0.25s ease;
-  }
-  
-  .logged-experiences-button-homepage:hover {
-    background-color: hsl(10, 70%, 25%);
-    transform: translateY(-2px);
-  }
-  
-  /* 🟡 TERTIARY button — random experience */
-  .random-experience-button-homepage {
-    background-color: hsl(60, 30%, 95%); /* very light cream */
-    border: 1px solid hsl(50, 40%, 70%);
-    border-radius: 100px;
-    justify-self: center;
-    margin: 2rem 6.5rem 3rem 6.5rem;
-    padding: 0.5rem 1.2rem;
-    font-size: 0.8rem;
-    color: hsl(10, 70%, 20%); /* dark brown text for contrast */
-    font-weight: 500;
-    transition: all 0.25s ease;
-  }
-  
-  .random-experience-button-homepage:hover {
-    background-color: hsl(60, 30%, 90%);
-    transform: translateY(-1px);
-  }
-  
-  /* 🟤 Logo */
-  .homepage-logo-container {
-    display: flex;
-    justify-content: center;
-    margin: 0;
-  }
-  
-  .homepage-logo {
-    width: 5.5rem;
-    opacity: 0.4;
-    filter: invert(100%);
-  }
-  
+}
