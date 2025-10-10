@@ -74,7 +74,6 @@ html, body {
   border: none;
   border-radius: 100px;
   width: 80%;
-  max-width: 340px;
   height: 3.2rem;
   font-size: 1.1rem;
   color: #3a2100;
@@ -88,6 +87,17 @@ html, body {
 .log-new-experience:hover {
   transform: translateY(-3px);
   box-shadow: 0 8px 22px rgba(255, 200, 0, 0.45);
+  color: white;
+}
+
+.random-and-logged-button-container {
+  width: 50%;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.8rem;
 }
 
 /* 🟤 Logged Experiences — secondary button */
@@ -95,13 +105,14 @@ html, body {
   background: hsl(20, 40%, 20%);
   border-radius: 12px;
   border: 1px solid hsl(20, 40%, 30%);
-  width: 65%;
   padding: 0.8rem 1.2rem;
   font-size: 0.95rem;
   color: #fdfaf7;
   font-weight: 500;
   box-shadow: 0 3px 6px rgba(0,0,0,0.25);
   transition: all 0.25s ease;
+  width: 100%;
+
 }
 
 .logged-experiences-button-homepage:hover {
@@ -114,13 +125,13 @@ html, body {
   background: rgba(255, 255, 255, 0.85);
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 50px;
-  width: 65%;
   padding: 0.6rem 1.2rem;
   color: hsl(20, 50%, 15%);
   font-weight: 500;
   font-size: 0.9rem;
   backdrop-filter: blur(4px);
   transition: all 0.25s ease;
+  width: 100%;
 }
 
 .random-experience-button-homepage:hover {
@@ -171,3 +182,101 @@ html, body {
     transform: translateY(0);
   }
 }
+
+@media (min-width: 600px) {
+
+  .log-new-experience {
+    width: 60%;
+  }
+
+  .random-and-logged-button-container {
+    width: 40%;
+
+    button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+    }
+  }
+}
+
+@media (min-width: 750px) {
+
+  .log-new-experience {
+    width: 60%;
+  }
+
+  .random-and-logged-button-container {
+    width: 35%;
+
+    button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+    }
+  }
+}
+
+@media (min-width: 800px) {
+
+  .log-new-experience {
+    width: 45%;
+    height: 4.5rem;
+  }
+
+  .random-and-logged-button-container {
+    flex-direction: row;
+    width: 40%;
+
+    button {
+      display: flex;
+      height: 3.5rem;
+      border-radius: 10px;
+      justify-content: center;
+      align-items: center;
+
+    }
+  }
+}
+
+@media (min-width: 1300px) {
+
+  .log-new-experience {
+    width: 20%;
+    height: 8rem;
+    font-size: 1.4rem;
+  }
+
+  .random-and-logged-button-container {
+    flex-direction: row;
+    width: 25%;
+    
+
+    button {
+      height: 3.5rem;
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+    }
+  }
+}
+
+@media (min-width: 1600px) {
+
+  .log-new-experience {
+    font-size: 1.6rem;
+
+    
+    margin-bottom: 4rem;
+
+  }
+
+}
+
+
+
+

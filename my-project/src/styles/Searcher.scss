@@ -35,8 +35,8 @@
   .searcher-container input {
     border: none;
     width: 12rem;
-    padding: 0.35rem 0.6rem;
-    font-size: 0.85rem;
+    padding: 0.5rem 0.6rem;
+    font-size: 0.9rem;
     background: transparent;
     color: #fffaf3;
     transition: all 0.3s ease;
@@ -49,14 +49,13 @@
   
   .searcher-container input:focus {
     outline: none;
-    background: rgba(255, 255, 255, 0.2);
   }
   
   /* 🔘 Search button */
   .searcher-container button {
     border: none;
     background: rgba(255, 255, 255, 0.2);
-    padding: 0.35rem 0.6rem;
+    padding: 0.6rem 0.6rem;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -83,7 +82,7 @@
     color: #fffaf3;
     font-size: 0.85rem;
     font-weight: 500;
-    padding: 0.4rem .8rem !important;
+    padding: 0.6rem .8rem !important;
     letter-spacing: 0.3px;
     cursor: pointer;
     transition: all 0.25s ease;

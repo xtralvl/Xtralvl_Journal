@@ -19,6 +19,7 @@ export default function HomePage({ handlePage }: HomePageProps) {
             Log New Experience
         </button>
 
+        <div className="random-and-logged-button-container" >
         <button onClick={() => handlePage("random")} className="random-experience-button-homepage">
             Generate a random experience
         </button>
@@ -26,6 +27,8 @@ export default function HomePage({ handlePage }: HomePageProps) {
         <button onClick={() => handlePage("list")} className="logged-experiences-button-homepage">
             Logged Experiences
         </button>
+
+        </div>
     </div>
 
       <div className="homepage-logo-container third-row-homepage">
