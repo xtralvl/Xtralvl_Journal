@@ -1,365 +1,337 @@
 .experience-log-page-page-wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 100%;
+  padding: 1rem 0 2rem 0;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 6rem;
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(15px) saturate(180%);
+  -webkit-backdrop-filter: blur(15px) saturate(180%);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
 
-    position: relative;
+  &::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    min-height: 100%;
-    padding: .5rem 0;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .page-content {
+    position: relative;
+    z-index: 1;
+    color: white;
+    width: 90%;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
-    padding-bottom: 6rem;
-  
-    // overlay
-    &::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0,0,0,0.7);
-      z-index: 0;
-      pointer-events: none;
-    } 
-  
-    .page-content {
-      position: relative;
-      z-index: 1;
-      color: white;
-      width: 90%;
-      margin: 0 auto;
+    font-family: "Inter", sans-serif;
+
+    /* ✨ Fade-up animation for page content children */
+    > * {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 0.6s ease forwards;
+    }
+    > *:nth-child(1) { animation-delay: 0.1s; }
+    > *:nth-child(2) { animation-delay: 0.2s; }
+    > *:nth-child(3) { animation-delay: 0.3s; }
+    > *:nth-child(4) { animation-delay: 0.4s; }
+    > *:nth-child(5) { animation-delay: 0.5s; }
+    > *:nth-child(6) { animation-delay: 0.6s; }
+    > *:nth-child(7) { animation-delay: 0.7s; }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* -------------------------
+       Keep all your existing styles
+    ------------------------- */
+    .back-button-addNew {
+      align-self: flex-start;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      width: 1.5rem;
+      padding: 0;
+      display: flex;
+      margin-bottom: 2rem;
+
+      img {
+        width: 1.5rem;
+        filter: invert(100%);
+        transform: scaleX(-1);
+      }
+    }
+
+    label,
+    span {
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+
+    input,
+    textarea {
+      border: none !important;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px #f0c000;
+    }
+
+    .title,
+    .description {
       display: flex;
       flex-direction: column;
-  
-      .back-button-addNew {
-        align-self: flex-start;
-        background: transparent;
-        border: none;
-        cursor: pointer;
-        width: 1.5rem;
-        padding: 0;
+      margin-bottom: 1rem;
+    }
+
+    .title input {
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: 12px;
+      padding: 0.5rem;
+      color: white;
+      transition: background 0.3s;
+      &:focus {
+        background-color: rgba(255, 255, 255, 0.25);
+      }
+    }
+
+    .error-state-title { color: red; }
+    .no-error-state-title { color: white; }
+    .error-state-title-input { border: 2px solid red !important; }
+    .no-error-state-title-input { border: none; }
+    .error-msg-title { display: block; color: red; font-size: 1rem; margin-top: 0.2rem; }
+    .no-error-msg-title { display: none; }
+
+    .description textarea {
+      height: 4rem;
+      padding: 0.5rem;
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: 15px;
+      color: white;
+      transition: background 0.3s;
+      border: none;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      &:focus {
+        background-color: rgba(255, 255, 255, 0.25);
+      }
+    }
+
+    .category-selector,
+    .subcategories,
+    .date-time,
+    .location,
+    .photo-upload,
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 1rem;
+    }
+
+    .category-selector button {
+      padding: 0.5rem 1rem;
+      margin-right: 1rem;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      background-color: rgba(255, 255, 255, 0.2);
+      color: white;
+      font-size: 1rem;
+      transition: background-color 0.3s, transform 0.2s;
+      margin-bottom: 1rem;
+      margin-top: 0.2rem;
+
+      &.active {
+        background-color: #f0c000;
+        color: black;
+        transform: scale(1.05);
+      }
+    }
+
+    .subcategories {
+      display: flex;
+      flex-direction: row;
+      gap: 0.5rem;
+      border-radius: 12px;
+      background: none;
+      margin-bottom: 2rem;
+
+      button {
         display: flex;
-        margin-bottom: 2rem;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 0.5rem;
+        height: 4rem;
+        width: 4rem;
+        border-radius: 12px;
+        border: none;
+        background: rgba(255, 255, 255, 0.521);
+        color: black;
+        font-size: 0.85rem;
+        transition: background 0.3s, transform 0.2s;
 
         img {
-            width: 1.5rem;
-            filter: invert(100%);
-            transform: scaleX(-1); // flips horizontally
-          }
-      
-      }
-
-      label,
-      span {
-          margin-bottom: .5rem;
-      }
-  
-      input:focus,
-      select:focus,
-      textarea:focus {
-          outline: 2px solid #f0c000; // your orangy color
-          outline-offset: 2px;        // optional: space between outline and input
-  }
-  
-      input:focus,
-      textarea:focus {
-          outline: none; // remove default
-          box-shadow: 0 0 0 2px #f0c000;
-      }
-  
-
-      .title,
-      .description {
-        display: flex;
-        flex-direction: column;
-        margin-bottom: 1rem;
-
-      }
-
-      .description {
-        margin-bottom: 2rem;
-      }
-
-      .title {
-        
-        input {
-            background-color: rgba(255,255,255,0.3);
-
-            &:focus {
-                background-color: white;
-            }
-
+          width: 2rem;
+          margin-bottom: 0.2rem;
+          border-radius: 10px;
         }
 
-        .error-state-title {
-          color: red;
-        };
-
-        .no-error-state-title {
-          color: white;
-        };
-
-        .error-state-title-input {
-          border: 2px solid red;
-        };
-
-        .no-error-state-title-input {
-          border: none;
-        }
-
-        .error-msg-title {
-          display: block;
-          color: red;
-        };
-
-        .no-error-msg-title {
-          display: none;
-        }
-
-
-      }
-
-      .description {
-
-        textarea {
-            height: 4rem;
-            padding: .3rem;
-            background-color: rgba(255,255,255,0.3);
-            border-radius: 10px;
-
-            &:focus {
-                background-color: white;
-            }
-        }
-      }
-  
-  
-      .category-selector, .subcategories, .date-time, .location, .rating, .photo-upload, .buttons {
-        display: flex;
-        flex-direction: column;
-        margin-bottom: 1rem;
-
-      }
-
-      .category-selector button {
-        padding: 0.4rem 1rem;
-        margin-right: 1rem;
-        border-radius: 8px;
-        border: none;
-        cursor: pointer;
-        background-color: rgba(255,255,255,0.2);
-        color: white;
-        font-size: 1rem;
-        transition: background-color 0.2s;
-        margin-bottom: 1rem;
-
-  
         &.active {
           background-color: #f0c000;
           color: black;
-        }
-  
-        &:hover {
-          background-color: white;
+          transform: scale(1.1);
         }
       }
-
-      .subcategories {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        border-radius: 10px;
-        background-color: rgba(255,255,255,0.4);
-        margin-bottom: 2rem;
-
-        button {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: .6rem;
-            height: 4rem;
-            border: none;
-            background: none;
-            border-radius: 10px;
-            width: 4rem;
-            color: black;
-
-            img {
-                width: 2rem;
-                padding: 0;
-                border-radius: 10px;
-
-            }
-
-            &.active {
-                background-color: #f0c000;
-                color: black;
-                scale: (1.08);
-              }
-        
-        }
-
-      }
-  
-      input, select {
-        padding: 0.4rem;
-        border-radius: 6px;
-        border: none;
-        font-size: 1rem;
-        margin-bottom: 1rem;
-      }
-  
-      .buttons {
-        display: flex;
-        flex-direction: row;
-        gap: 2rem;
-        margin-top: 2.5rem;
-  
-        button {
-          flex: 1;
-          border: none;
-          cursor: pointer;
-          font-weight: bold;
-          transition: background-color 0.2s;
-        }
-
-       
-  
-        .cancel {
-            background-color: rgba(255,255,255,0.4);
-            color: white;
-  
-          &:hover {
-            background-color: rgba(255,255,255,0.6);
-        }
-        }
-  
-        .save {
-            background-color: #f0c000;
-            color: black;
-  
-          &:hover {
-            background-color: #ffcc01;
-            color: rgb(255, 255, 255);
-
-        }
-        }
-      }
-
-      .date-time {
-        display: grid;
-        grid-template-columns: 2fr;
-        gap: 1rem;
-
-        input {
-            margin-top: .5rem;
-            background-color: rgba(255,255,255,0.3);
-
-            &:focus {
-                background-color: white;
-            }
-
-        }
-
-
-        .date {
-            grid-column: 1;
-
-    
-        }
-
-        .time {
-            grid-column: 2;
-        }
-        
     }
-    
-    .location {
-        input {
-            background-color: rgba(255,255,255,0.3);
-            
-            &::placeholder {
-                color: black;
-            }
 
-            &:focus {
-                background-color: white;
-            }
+    input,
+    select {
+      padding: 0.5rem;
+      border-radius: 12px;
+      border: none;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      background-color: rgba(255, 255, 255, 0.2);
+      color: white;
 
+      &:focus {
+        background-color: rgba(255, 255, 255, 0.25);
+      }
+    }
+
+    .buttons {
+      display: flex;
+      flex-direction: row;
+      gap: 2rem;
+      margin-top: 2.5rem;
+
+      button {
+        flex: 1;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 15px;
+        padding: 0.6rem;
+        transition: background 0.3s, color 0.3s;
+        font-size: 1rem;
+      }
+
+      .cancel {
+        background-color: rgba(255, 255, 255, 0.2);
+        color: white;
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.35);
         }
+      }
+
+      .save {
+        background-color: #f0c000;
+        color: black;
+
+        &:hover {
+          background-color: #ffcc01;
+          color: white;
+        }
+      }
+    }
+
+    .date-time {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+
+      input {
+        margin-top: 0.5rem;
+      }
+
+      input::placeholder {
+        color: rgba(255, 255, 255, 0.5); // half opacity
+      }
+    }
+
+    .location input {
+      background-color: rgba(255, 255, 255, 0.2);
+      color: white;
+
+      &::placeholder {
+        color: rgba(255, 255, 255, 0.5);
+      }
+
+      &:focus {
+        background-color: rgba(255, 255, 255, 0.25);
+      }
     }
 
     .photo-upload-area {
-        background-color: rgba(255,255,255,0.3);
-        border-radius: 10px;
-        margin: 0 auto;
-        height: 10rem;
-        width: 15rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: .7rem;
-        flex-direction: column;
-        color: black;
-        gap: 1rem;
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: 15px;
+      margin: 0 auto;
+      height: 10rem;
+      width: 15rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 1rem;
+      color: white;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: background 0.3s;
+      border: none !important;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
 
-        .photo-preview {
-            width: auto;
-            height: 80%;
-            border-radius: 10px;
-        }
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.15);
+      }
 
-        img {
-            width: 3rem;
-        }
+      .photo-preview {
+        width: auto;
+        height: 80%;
+        border-radius: 12px;
+      }
 
+      img {
+        width: 3rem;
+      }
     }
 
     .delete-photo-button {
-        background-color: rgba(255,255,255,0.3);
-        width: 6rem;
-        border: none;
-        border-radius: 10px;
-        margin: .8rem auto 0 auto;
-        color: white;
-        padding: .2rem;
+      background-color: rgba(255, 255, 255, 0.1);
+      width: 6rem;
+      border: none;
+      border-radius: 12px;
+      margin: 0.8rem auto 0 auto;
+      color: white;
+      padding: 0.3rem;
+      cursor: pointer;
+      transition: background 0.3s;
 
-        &:hover {
-            background-color: rgba(235, 134, 134, 0.6);
-
-        }
-        
+      &:hover {
+        background-color: rgba(235, 134, 134, 0.6);
+      }
     }
 
-    .delete-photo-hide {
-        display: none;
-    }
-
-    .delete-photo-display {
-        display: block;
-    }
-
-
-    .cancel {
-        padding: .6rem;
-        border-radius: 15px;
-        font-size: 1.1rem;
-
-        
-    }
-
-    .save {
-        font-size: 1.1rem;
-        padding: .6rem;
-        border-radius: 15px;
-
-
-
-    }
-
-    }
+    .delete-photo-hide { display: none; }
+    .delete-photo-display { display: block; }
   }
-
-
-  
+}

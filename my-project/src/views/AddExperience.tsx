@@ -189,6 +189,7 @@ export default function AddExperience({ handlePage, handleAddExperience }: AddEx
           <div className="date-time">
             <div className="date">
               <label>Date:</label>
+              <br />
               <input
                 type="date"
                 value={date}
@@ -197,6 +198,7 @@ export default function AddExperience({ handlePage, handleAddExperience }: AddEx
             </div>
             <div className="time">
               <label>Time:</label>
+              <br />
               <input
                 type="time"
                 value={time}
