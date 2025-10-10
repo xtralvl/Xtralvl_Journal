@@ -11,6 +11,18 @@ import type { Experience } from "./components/Types";
 
 type Page = "home" | "faq" | "addNew" | "list" | "emptyList" | "exp" | "random";
 
+function setVh() {
+  const vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+}
+
+// Initial set
+setVh();
+
+// Update on resize
+window.addEventListener('resize', setVh);
+
+
 export default function App() {
   const [showSplash, setShowSplash] = useState(true);
   const [currentPage, setCurrentPage] = useState<Page>("home");
