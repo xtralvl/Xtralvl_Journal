@@ -76,30 +76,19 @@ export default function AddExperience({ handlePage, handleAddExperience }: AddEx
     photo: photoUrl
   };
 
-  const handleSave = () => {
-    if (title) {
-      setShowSaveModal(true);
-      setError(false);
-      handleAddExperience(currentExperience);
+const handleSave = () => {
+  if (title) {
+    setShowSaveModal(true);
+    setError(false);
 
-      localStorage.clear()
-
-      const storage = localStorage.getItem("savedExperiences");
-      const savedExperiences = storage ? JSON.parse(storage) : [];
-
-      const updatedExperiences = [...savedExperiences, currentExperience];
-
-      localStorage.setItem("savedExperiences", JSON.stringify(updatedExperiences));
-      console.log(storage)
-
-    } else {
-      // if no title -> show error and scroll to top
-      setShowSaveModal(false);
-      setError(true)
-      window.scrollTo({top: 0, behavior: "smooth"}) // scrolls to the top if the user did not give a title when clicks on save
-    }
-  };
-
+    handleAddExperience(currentExperience); // only call parent handler
+    // ✅ Remove localStorage handling from here
+  } else {
+    setShowSaveModal(false);
+    setError(true);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+};
   const handlesShowListAfterSave = () => {
     setShowSaveModal(false);
     document.body.style.overflow = "auto"; // re-enable scroll + clicks

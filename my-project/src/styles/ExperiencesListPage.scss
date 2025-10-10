@@ -1,42 +1,100 @@
 .experiences-list-page {
-    position: relative; // make this the positioning context
-  
-    &::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.8); // dark overlay
-      z-index: 1; // lower than content
-      pointer-events: none; // clicks go through to content
-    }
-  
-    .experiences-list-page-content {
-      position: relative; // needed to respect z-index
-      z-index: 2; // higher than overlay
+  position: relative;
+  width: 100%;
+  min-height: 100%;
+  padding: 1rem 0 2rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Inter', sans-serif;
+  color: white;
+
+  // Dark blurred background overlay
+  &::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(15px) saturate(180%);
+    -webkit-backdrop-filter: blur(15px) saturate(180%);
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .experiences-list-page-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 90%;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 1rem;
+    border-radius: 20px;
+
+    // Back button
+    .back-button-list {
+      align-self: flex-start;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      width: 1.5rem;
+      padding: 0;
+      margin-bottom: 1rem;
       display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-      padding: 0 1rem 1rem 1rem;
-  
-      .back-button-list {
-        align-self: flex-start;
-        background: transparent;
-        border: none;
-        cursor: pointer;
+      filter: invert(100%);
+
+      img {
         width: 1.5rem;
-        padding: 0;
-        display: flex;
-        margin: 1rem 0;
-        filter: invert(100%);
-  
-        img {
-          width: 1.5rem;
-          transform: scaleX(-1); // flips horizontally
-        }
+        transform: scaleX(-1);
+        transition: transform 0.2s ease;
+      }
+
+      &:hover img {
+        transform: scaleX(-1) scale(1.1);
       }
     }
+
+    // Fade-up animation for list items
+    > * {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 0.6s ease forwards;
+    }
+    > *:nth-child(1) { animation-delay: 0.1s; }
+    > *:nth-child(2) { animation-delay: 0.2s; }
+    > *:nth-child(3) { animation-delay: 0.3s; }
+    > *:nth-child(4) { animation-delay: 0.4s; }
+    > *:nth-child(5) { animation-delay: 0.5s; }
+    > *:nth-child(6) { animation-delay: 0.6s; }
+    > *:nth-child(7) { animation-delay: 0.7s; }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    // No experiences placeholder styling
+    .empty-message {
+      text-align: center;
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 1rem;
+      margin: 2rem 0;
+      padding: 1rem;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 12px;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
   }
-  
+}
