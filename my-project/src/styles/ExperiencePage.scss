@@ -114,9 +114,10 @@
     .experience-photo {
       border-radius: 10px;
       margin-bottom: 1rem;
-      width: 100%;
+      width: 90%;
       max-height: 350px;
       object-fit: cover;
+      align-self: center;
     }
 
     /* Buttons */
@@ -198,7 +199,6 @@
   }
 
 }
-
 
 @media (min-width: 700px) {
   

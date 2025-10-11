@@ -30,14 +30,7 @@ export default function ExperiencePage(props: ExperiencePageProps) {
       props.handleDelete(props.experience!.id);
     };
     
-    useEffect(() => {
-      if (showDeleteModal) {
-        document.body.style.overflow = "hidden";
-      } else {
-        document.body.style.overflow = "auto";
-      }
-    }, [showDeleteModal]);
-    
+   
     if (!props.experience) return <div>Experience not found</div>;
     return (
         <div className="experience-page-container" >
