@@ -114,9 +114,10 @@
     .experience-photo {
       border-radius: 10px;
       margin-bottom: 1rem;
-      width: 90%;
-      max-height: 350px;
-      object-fit: cover;
+      width: auto;
+      height: auto;
+      max-height: 450px;
+      object-fit: contain;
       align-self: center;
     }
 

@@ -1,5 +1,5 @@
 import type { Experience } from "../components/Types";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 interface ExperiencePageProps {
     experience: Experience | undefined;

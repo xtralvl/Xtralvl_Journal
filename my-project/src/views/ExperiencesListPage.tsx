@@ -30,7 +30,7 @@ export default function ExperiencesListPage({ handlePage }: ExperiencesListPageP
 
       <div className="experiences-list-page-content">
         {experiences.length > 0 ? (
-          experiences.map((experience, index) => (
+          experiences.map((experience) => (
             <ExperienceListElement
               key={experience.id}
               experience={experience}
