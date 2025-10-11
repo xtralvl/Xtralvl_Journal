@@ -82,7 +82,7 @@ export default function AddExperience({ handlePage, handleAddExperience }: AddEx
       <div className="experience-log-page-page-wrapper">
 
       <button
-            onClick={() => handlePage("home")}
+            onClick={handleshowCancelModal}
             className="back-button-addNew"
           >
             <img src="/next-icon.svg" alt="Back" />
