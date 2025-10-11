@@ -33,83 +33,62 @@ export default function AddExperience({ handlePage, handleAddExperience }: AddEx
       setPhoto(file);
   
       const reader = new FileReader();
-      reader.onloadend = () => {
-        setPhotoUrl(reader.result as string); // ✅ Base64 string
-      };
-      reader.readAsDataURL(file); // Converts the image to Base64
+      reader.onloadend = () => setPhotoUrl(reader.result as string);
+      reader.readAsDataURL(file);
     }
   };
   
-  const handlePhotoDelete = () => {
-    setPhotoUrl("");
-  };
+  const handlePhotoDelete = () => setPhotoUrl("");
 
-  const handleshowCancelModal = () => {
-    setShowCancelModal(true);
-  };
-
-  const handleshowCancelModalClose = () => {
-    setShowCancelModal(false);
-  };
-
-  interface Experience {
-    id: string;
-    title: string;
-    description?: string;
-    category?: string | null;
-    subcategory?: string | null;
-    date?: string;
-    time?: string;
-    location?: string;
-    photo?: string | null;
-  };
+  const handleshowCancelModal = () => setShowCancelModal(true);
+  const handleshowCancelModalClose = () => setShowCancelModal(false);
 
   const currentExperience: Experience = {
     id: Date.now().toString(),
-    title: title,
-    description: description,
-    category: category,
-    subcategory: subcategory,
-    date: date,
-    time: time,
-    location: location,
+    title,
+    description,
+    category,
+    subcategory,
+    date,
+    time,
+    location,
     photo: photoUrl
   };
 
-const handleSave = () => {
-  if (title) {
-    setShowSaveModal(true);
-    setError(false);
+  const handleSave = () => {
+    if (title) {
+      setShowSaveModal(true);
+      setError(false);
+      handleAddExperience(currentExperience);
+    } else {
+      setShowSaveModal(false);
+      setError(true);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
 
-    handleAddExperience(currentExperience); // only call parent handler
-    // ✅ Remove localStorage handling from here
-  } else {
-    setShowSaveModal(false);
-    setError(true);
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }
-};
   const handlesShowListAfterSave = () => {
     setShowSaveModal(false);
-    document.body.style.overflow = "auto"; // re-enable scroll + clicks
-    setTimeout(() => handlePage("list"), 50); // wait a frame before navigating
+    document.body.style.overflow = "auto";
+    setTimeout(() => handlePage("list"), 50);
   };
-  
+
   useEffect(() => {
     document.body.style.overflow = showSaveModal ? "hidden" : "auto";
   }, [showSaveModal]);
 
-
   return (
     <>
       <div className="experience-log-page-page-wrapper">
-        <div className="page-content">
-          <button
+
+      <button
             onClick={() => handlePage("home")}
             className="back-button-addNew"
           >
-            <img src="/next-icon.svg" alt="" />
+            <img src="/next-icon.svg" alt="Back" />
           </button>
+
+        <div className="page-content">
 
           {/* Title */}
           <div className="title">
@@ -174,6 +153,8 @@ const handleSave = () => {
             </div>
           )}
 
+          <div className="date-time-location-container">
+
           {/* Date & Time */}
           <div className="date-time">
             <div className="date">
@@ -205,6 +186,8 @@ const handleSave = () => {
               value={location}
               onChange={(e) => setLocation(e.target.value)}
             />
+          </div>
+
           </div>
 
           {/* Photo upload */}
@@ -249,15 +232,15 @@ const handleSave = () => {
         </div>
       </div>
 
-        {/* CancelModal + Backdrop */}
-        {showCancelModal && (
+      {/* Cancel Modal */}
+      {showCancelModal && (
         <>
           <div className="cancel-modal-backdrop"></div>
           <div className="cancel-modal">
             <p>Are you sure, want to exit?</p>
             <span>All your unsaved data will be lost.</span>
             <div className="cancelmodal-buttons">
-            <button className="continue-button-cancelmodal" onClick={handleshowCancelModalClose}>
+              <button className="continue-button-cancelmodal" onClick={handleshowCancelModalClose}>
                 No, I continue
               </button>
               <button onClick={() => handlePage("home")} className="exit-button-cancelmodal">
@@ -268,8 +251,7 @@ const handleSave = () => {
         </>
       )}
 
-
-      {/* SaveModal + Backdrop */}
+      {/* Save Modal */}
       {showSaveModal && (
         <>
           <div className="save-modal-backdrop"></div>
@@ -287,8 +269,6 @@ const handleSave = () => {
           </div>
         </>
       )}
-
-
     </>
   );
 }

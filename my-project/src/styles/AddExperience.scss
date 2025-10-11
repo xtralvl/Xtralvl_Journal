@@ -2,7 +2,7 @@
   position: relative;
   width: 100%;
   min-height: 100%;
-  padding: 1rem 0 2rem 0;
+  padding: 6rem 0 2rem 0 !important;
   display: flex;
   flex-direction: column;
   padding-bottom: 6rem;
@@ -23,6 +23,35 @@
     z-index: 0;
     pointer-events: none;
   }
+
+  .back-button-addNew {
+    position: fixed;
+    top: 1.5rem;
+    left: 1rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    width: 1.8rem;
+    height: 1.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: invert(100%);
+    z-index: 10;
+    transition: transform 0.2s ease;
+  
+    img {
+      width: 1.8rem;
+      height: 1.8rem;
+      transform: scaleX(-1);
+      transition: transform 0.2s ease;
+    }
+  
+    &:hover img {
+      transform: scaleX(-1) scale(1.1);
+    }
+  }
+
 
   .page-content {
     position: relative;
@@ -59,34 +88,7 @@
       }
     }
 
-    /* -------------------------
-       Keep all your existing styles
-    ------------------------- */
-    .back-button-addNew {
-      align-self: flex-start;
-      background: transparent;
-      border: none;
-      cursor: pointer;
-      width: 1.5rem;
-      padding: 0;
-      display: flex;
-      margin-bottom: 2rem;
-
-      img {
-        width: 1.5rem;
-        filter: invert(100%);
-        transform: scaleX(-1);
-        transition: transform 0.2s ease;
-
-      }
-
-      &:hover img {
-        transform: scaleX(-1) scale(1.1);
-      }
-
-    }
-
-    label,
+        label,
     span {
       margin-bottom: 0.5rem;
       font-weight: 500;
@@ -182,6 +184,7 @@
       border-radius: 12px;
       background: none;
       margin-bottom: 2rem;
+      justify-content: space-between;
 
       button {
         display: flex;
@@ -272,7 +275,7 @@
       }
 
       input::placeholder {
-        color: rgba(255, 255, 255, 0.5); // half opacity
+        color: rgba(255, 255, 255, 0.5);
       }
     }
 
@@ -342,3 +345,117 @@
     .delete-photo-display { display: block; }
   }
 }
+
+@media (min-width: 550px) {
+
+  .date-time-location-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+
+    .location {
+      width: 100%;
+    }
+  }
+
+  .subcategories {
+
+    button {
+      width: 4.3rem !important;
+      height: 4.3rem !important;
+    }
+    img {
+      width: 2.6rem !important;
+      
+    }
+  }
+}
+
+@media (min-width: 800px) {
+
+  .page-content {
+    padding: 0 3.5rem;
+
+  }
+
+  .subcategories {
+
+    button {
+      width: 5rem !important;
+      height: 5rem !important;
+    }
+    img {
+      width: 2.8rem !important;
+      
+    }
+  }
+}
+
+
+@media (min-width: 700px) {
+
+  .page-content {
+    padding: 0 3rem;
+
+  }
+}
+
+@media (min-width: 850px) {
+
+  .page-content {
+    padding: 0 4rem;
+  }
+
+  .buttons {
+    gap: 4rem !important;
+  }
+
+  .subcategories {
+    justify-content: center !important;
+    gap: 2rem !important;
+  }
+
+}
+
+@media (min-width: 1000px) {
+
+  .page-content {
+    padding: 0 6rem;
+  }
+
+  .buttons {
+    gap: 6rem !important;
+  }
+
+  .subcategories {
+    gap: 3rem !important;
+  }
+
+}
+
+@media (min-width: 1300px) {
+  .experience-log-page-page-wrapper .page-content .buttons {
+    gap: 2rem !important;       // spacing between buttons
+    justify-content: center !important; // center them horizontally
+  }
+
+  .experience-log-page-page-wrapper .page-content .buttons button {
+    margin-top: 1rem;
+    flex: none !important;       // cancel flex:1
+    width: 30% !important;       // approx half the normal width
+    font-size: 1rem !important;
+  }
+
+  .subcategories {
+    gap: 4rem !important;
+  }
+}
+
+@media (min-width: 1600px) {
+
+  .page-content {
+    padding: 0 10rem;
+  }
+
+}
+
