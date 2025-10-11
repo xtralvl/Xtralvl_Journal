@@ -18,21 +18,19 @@ interface Experience {
 }
 
 export default function ExperiencesListPage({ handlePage }: ExperiencesListPageProps) {
-  // Get data from localStorage
   const stored = localStorage.getItem("savedExperiences");
-
-  // Parse it into an array or use empty array if null
-  const experiences: Experience[] = stored ? JSON.parse(stored) : [];  
+  const experiences: Experience[] = stored ? JSON.parse(stored) : [];
 
   return (
+    <div className="experiences-list-page">
+      {/* Fixed back button */}
+      <button onClick={() => handlePage("home")} className="back-button-list">
+        <img src="/next-icon.svg" alt="Back" />
+      </button>
 
-    <>
-      <div className="experiences-list-page">
-        <div className="experiences-list-page-content" >
-        <button onClick={() => handlePage("home")} className="back-button-list" ><img src="/next-icon.svg" alt="" /></button>
-        {/* If there are saved experiences, show them */}
+      <div className="experiences-list-page-content">
         {experiences.length > 0 ? (
-          experiences.map((experience) => (
+          experiences.map((experience, index) => (
             <ExperienceListElement
               key={experience.id}
               experience={experience}
@@ -40,12 +38,9 @@ export default function ExperiencesListPage({ handlePage }: ExperiencesListPageP
             />
           ))
         ) : (
-            <ExperiencesListPageEmpty handlePage={handlePage} />
+          <ExperiencesListPageEmpty handlePage={handlePage} />
         )}
-
-        </div>
+      </div>
     </div>
-
-    </>
   );
 }

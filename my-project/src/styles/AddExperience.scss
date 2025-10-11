@@ -22,6 +22,7 @@
     background-color: rgba(0, 0, 0, 0.8);
     z-index: 0;
     pointer-events: none;
+
   }
 
   .back-button-addNew {
@@ -415,6 +416,10 @@
     gap: 2rem !important;
   }
 
+  .photo-upload-area {
+    width: 18rem !important;
+  }
+
 }
 
 @media (min-width: 1000px) {
@@ -446,16 +451,31 @@
     font-size: 1rem !important;
   }
 
+  .page-content {
+    padding: 0 14rem !important;
+  }
+
+
   .subcategories {
     gap: 4rem !important;
   }
+
+  .photo-upload-area {
+    width: 20rem !important;
+  }
+
 }
 
 @media (min-width: 1600px) {
 
   .page-content {
-    padding: 0 10rem;
+    padding: 0 20rem !important;
   }
+
+  .photo-upload-area {
+    width: 22rem !important;
+  }
+
 
 }
 
