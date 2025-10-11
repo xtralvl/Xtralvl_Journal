@@ -63,9 +63,14 @@
 
     hr {
       width: 100%;
-      opacity: 0.3;
+      opacity: 0.3 !important;
       margin: 0.3rem 0 0.5rem 0;
     }
+
+    .details-container-experience-page {
+      margin-bottom: 1rem;
+    }
+  
 
     /* Categories */
     .category-container {
@@ -176,6 +181,38 @@
         opacity: 1;
         transform: translateY(0);
       }
+    }
+  }
+}
+
+@media (min-width: 600px) {
+  
+  h2 {
+    font-size: 2rem !important;
+  }
+
+  .details-container-experience-page {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+}
+
+
+@media (min-width: 700px) {
+  
+  .details-container-experience-page {
+    margin-bottom: 1.5rem !important;
+  }
+
+  .modifying-buttons-experience-page {
+    margin-top: 1rem;
+    flex-direction: row !important;
+    justify-content: center !important;
+
+    button {
+      width: 15rem !important;
     }
   }
 }

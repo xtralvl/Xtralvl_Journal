@@ -48,6 +48,9 @@ export default function ExperiencePage(props: ExperiencePageProps) {
           <p>{props.experience.description}</p>
           <hr />
 
+        <div className="details-container-experience-page">
+
+        
           <div className="category-container">
             <p className={`category ${props.experience.category === "skill" ? "skill-tag" : "adventure-tag"}`} >{props.experience.category}</p>
             <p className="subcategory">{props.experience.subcategory ? `(${props.experience.subcategory.toLowerCase()})` : ""}</p>
@@ -60,6 +63,8 @@ export default function ExperiencePage(props: ExperiencePageProps) {
             <p>{formatDate(props.experience.date)}</p>
             <p>{props.experience.time}</p>
           </div>
+
+        </div>
 
           {props.experience.photo && <img className="experience-photo" src={props.experience.photo} alt={props.experience.title} />}
 
