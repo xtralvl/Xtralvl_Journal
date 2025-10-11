@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import type { Adventure } from '../components/RandomExperiences';
 import { randomAdventures } from '../components/RandomExperiences';
 
@@ -9,6 +9,12 @@ interface RandomExperienceProps {
 export default function RandomExperience(props: RandomExperienceProps) {
     const [adventure, setAdventure] = useState<Adventure | null>(null);
     const [isGenerated, setIsGenerated] = useState(false);
+    const [fadeUp, setFadeUp] = useState(false);
+
+    useEffect(() => {
+        // Trigger fade-up animation on mount
+        setFadeUp(true);
+    }, []);
 
     const handleRandomExperience = () => {
         const randomNum = Math.floor(Math.random() * randomAdventures.length);
@@ -27,7 +33,7 @@ export default function RandomExperience(props: RandomExperienceProps) {
                 <img src="/next-icon.svg" alt="Back" />
             </button>
 
-            <div className="random-page-content">
+            <div className={`random-page-content ${fadeUp ? 'fade-up' : ''}`}>
                 <h2 className={`${isGenerated ? "header-hide" : "header-show"}`}>
                     Click the button below to generate a random experience!
                 </h2>

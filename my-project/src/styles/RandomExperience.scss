@@ -26,15 +26,17 @@
     pointer-events: none;
   }
 
-  /* Back button */
+  /* Back button fixed in top-left */
   .random-experience-page-back-button {
-    align-self: flex-start;
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 999;
     background: transparent;
     border: none;
     cursor: pointer;
     width: 1.5rem;
     padding: 0;
-    margin-bottom: 1rem;
     display: flex;
     filter: invert(100%);
 
@@ -58,6 +60,9 @@
     z-index: 2;
     justify-content: center;
     width: 100%;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUpPage 0.8s ease forwards;
 
     h2 {
       margin-top: 2rem;
@@ -111,15 +116,19 @@
     }
   }
 
-  /* -----------------------------
-     Generated experience with fade-up animation
-  ----------------------------- */
+  /* Fade animations */
+  @keyframes fadeUpPage {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
   .generated-experience,
   .generated-experience-description {
     opacity: 0;
     transform: translateY(20px) scale(0.98);
     animation: fadeUpExperience 0.6s ease forwards;
-    animation-delay: 0.1s; /* slight delay for smooth entrance */
   }
 
   .generated-experience-description {
@@ -140,7 +149,7 @@
   .generated-experience {
     color: #f0c000;
     font-size: 1.6rem;
-    margin-top: 3rem;
+    margin-top: 10rem;
     align-self: center;
     text-align: center;
     background: rgba(255, 255, 255, 0.05);
@@ -196,9 +205,15 @@
   }
 
   .random-page-logo {
-    width: 40%;
+    width: 10rem;
     align-self: center;
     margin-bottom: 2rem;
     opacity: 0.5;
+  }
+}
+
+@media (min-width: 600px) {
+  .again-button-random-experience-page {
+    margin: 0 6rem 6rem 6rem !important;
   }
 }
