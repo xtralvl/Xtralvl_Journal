@@ -7,9 +7,10 @@ import ExperiencePage from "./views/ExperiencePage";
 import FAQPage from "./views/FAQPage";
 import AddExperience from "./views/AddExperience";
 import RandomExperience from "./views/RandomExperience";
+import EditExperiencePage from "./views/EditExperiencePage";
 import type { Experience } from "./components/Types";
 
-type Page = "home" | "faq" | "addNew" | "list" | "emptyList" | "exp" | "random";
+type Page = "home" | "faq" | "addNew" | "list" | "emptyList" | "exp" | "random" | "edit";
 
 function setVh() {
   const vh = window.innerHeight * 0.01;
@@ -54,6 +55,16 @@ export default function App() {
     if (id) setCurrentExperienceId(id);
     console.log(`➡️ Navigated to page: ${page}${id ? ` (Experience ID: ${id})` : ""}`);
   };
+
+    // 💾 Update experience
+  const handleUpdateExperience = (updatedExperience: Experience) => {
+    const updatedExperiences = savedExperiences.map(exp =>
+      exp.id === updatedExperience.id ? updatedExperience : exp
+    );
+    setSavedExperiences(updatedExperiences);
+    localStorage.setItem("savedExperiences", JSON.stringify(updatedExperiences));
+  };
+  
 
   // 🕒 Hide splash after 7 seconds
   useEffect(() => {
@@ -104,7 +115,18 @@ export default function App() {
         <RandomExperience
         handlePage={handlePage}
         />
-      )
+      );
+
+      case "edit":
+        if (!currentExperience) return null;
+        return (
+          <EditExperiencePage
+          handleUpdateExperience = {handleUpdateExperience}
+          experience={currentExperience}
+          handlePage={handlePage}
+          />
+        );
+  
 
     default:
       return null;

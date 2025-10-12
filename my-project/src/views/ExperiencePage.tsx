@@ -62,7 +62,7 @@ export default function ExperiencePage(props: ExperiencePageProps) {
           {props.experience.photo && <img className="experience-photo" src={props.experience.photo} alt={props.experience.title} />}
 
           <div className="modifying-buttons-experience-page" >
-            <button className="edit-button-experience-page" >Edit</button>
+            <button onClick={() => props.handlePage("edit")} className="edit-button-experience-page" >Edit</button>
             <button className="delete-button-experience-page" onClick={handleshowDeleteModal} >Delete</button>
           </div>
 

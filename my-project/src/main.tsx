@@ -15,9 +15,10 @@ import './styles/ExperienceListElement.scss';
 import './styles/ExperiencePage.scss';
 import './styles/DeleteExperienceModal.scss';
 import './styles/RandomExperience.scss';
+import './styles/UpdateModal.scss';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <App />
-  </StrictMode>,
-)
+  </StrictMode>
+);

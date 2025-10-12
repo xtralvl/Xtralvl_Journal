@@ -9,7 +9,7 @@ interface FAQProps {
 export default function FAQComponent(props: FAQProps) {
     return (
         <div>
-            <div className="question-wrapper">
+            <div onClick={props.onToggle} className="question-wrapper">
                 <h2>{`"${props.question}"`}</h2>
                 <button onClick={props.onToggle} className="toggle-icon">
                     <img 
