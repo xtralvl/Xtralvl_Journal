@@ -68,7 +68,7 @@
 /* -------------------------
    Save Modal Backdrop with Glass Blur
 ------------------------- */
-.update-modal-backdrop {
+.save-modal-backdrop {
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.4); /* lighter for blur effect */
@@ -82,7 +82,7 @@
 /* -------------------------
    Save Modal Container
 ------------------------- */
-.update-modal {
+.save-modal {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -126,13 +126,13 @@
 /* -------------------------
    Modal Text
 ------------------------- */
-.update-modal p {
+.save-modal p {
   color: #a0ff8f;
   font-size: 1.5rem;
   margin-bottom: 1.5rem;
 }
 
-.update-modal span {
+.save-modal span {
   padding: 0 2rem;
   margin-bottom: 2rem;
   color: rgba(255,255,255,0.85);
@@ -142,13 +142,13 @@
 /* -------------------------
    Modal Buttons
 ------------------------- */
-.updatemodal-buttons {
+.savemodal-buttons {
   display: flex;
   gap: 1rem;
   margin-bottom: 1rem;
 }
 
-.updatemodal-buttons button {
+.savemodal-buttons button {
   flex: 1;
   border: none;
   border-radius: 18px;
@@ -160,7 +160,7 @@
 }
 
 /* Go to Home - secondary */
-.go-to-home-page-button-updatemodal {
+.go-to-home-page-button-savemodal {
   background: rgba(255, 255, 255, 0.15) !important;
   color: white;
   &:hover {
@@ -171,7 +171,7 @@
 }
 
 /* See Logged Experiences - primary CTA */
-.see-logged-experiences-button-updatemodal {
+.see-logged-experiences-button-savemodal {
   background: white !important;
   color: rgb(0, 0, 0);
   &:hover {

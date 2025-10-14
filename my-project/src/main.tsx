@@ -16,6 +16,7 @@ import './styles/ExperiencePage.scss';
 import './styles/DeleteExperienceModal.scss';
 import './styles/RandomExperience.scss';
 import './styles/UpdateModal.scss';
+import './styles/EditExperiencePage.scss'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

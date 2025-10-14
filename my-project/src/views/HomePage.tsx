@@ -1,17 +1,19 @@
 import Searcher from "../components/HomePageComponents/Searcher";
+import type { Experience } from "../components/Types";
 
 interface HomePageProps {
   handlePage: (page: string) => void;
-}
+  savedExperiences: Experience[] | undefined;
+};
 
-
-
-export default function HomePage({ handlePage }: HomePageProps) {
+export default function HomePage({ handlePage, savedExperiences }: HomePageProps) {
   return (
     <div className="homepage-container">
       {/* Searcher sits at the top */}
       <div className="searcher-component-container first-row-homepage" >
-      <Searcher handlePage={handlePage} />
+        <Searcher
+        handlePage={handlePage}
+        savedExperiences={savedExperiences}/>
       </div>
 
     <div className="second-row-homepage" >
@@ -27,7 +29,6 @@ export default function HomePage({ handlePage }: HomePageProps) {
         <button onClick={() => handlePage("list")} className="logged-experiences-button-homepage">
             Logged Experiences
         </button>
-
         </div>
     </div>
 

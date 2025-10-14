@@ -1,0 +1,184 @@
+.experience-log-page-page-wrapper {
+    position: relative;
+    width: 100%;
+    min-height: 100%;
+    padding: 1rem 0 2rem 0;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 6rem;
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(15px) saturate(180%);
+    -webkit-backdrop-filter: blur(15px) saturate(180%);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+  
+    &::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      z-index: 0;
+      pointer-events: none;
+    }
+  
+    .page-content {
+      position: relative;
+      z-index: 1;
+      color: white;
+      width: 90%;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      font-family: "Inter", sans-serif;
+  
+      > * {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeUp 0.6s ease forwards;
+      }
+      > *:nth-child(1) { animation-delay: 0.1s; }
+      > *:nth-child(2) { animation-delay: 0.2s; }
+      > *:nth-child(3) { animation-delay: 0.3s; }
+      > *:nth-child(4) { animation-delay: 0.4s; }
+      > *:nth-child(5) { animation-delay: 0.5s; }
+      > *:nth-child(6) { animation-delay: 0.6s; }
+      > *:nth-child(7) { animation-delay: 0.7s; }
+  
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+  
+      /* -------------------------
+         Keep all your existing inner styles
+      ------------------------- */
+      /* ... include all previous inner styles here ... */
+    }
+  }
+  
+  /* -------------------------
+     Save Modal Backdrop with Glass Blur
+  ------------------------- */
+  .update-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4); /* lighter for blur effect */
+    backdrop-filter: blur(15px) saturate(180%);
+    -webkit-backdrop-filter: blur(15px) saturate(180%);
+    z-index: 999;
+    opacity: 0;
+    animation: fadeUpModalBackdrop 0.4s ease forwards;
+  }
+  
+  /* -------------------------
+     Save Modal Container
+  ------------------------- */
+  .update-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    z-index: 1000;
+    text-align: center;
+    padding: 2rem 2.5rem;
+    width: 90%;
+    max-width: 400px;
+    border-radius: 25px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+    color: white;
+    opacity: 0;
+    animation: fadeUpModal 0.5s ease forwards;
+  }
+  
+  /* Fade-up animation for modal */
+  @keyframes fadeUpModal {
+    from {
+      opacity: 0;
+      transform: translate(-50%, calc(-50% + 20px));
+    }
+    to {
+      opacity: 1;
+      transform: translate(-50%, -50%);
+    }
+  }
+  
+  @keyframes fadeUpModalBackdrop {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  /* -------------------------
+     Modal Text
+  ------------------------- */
+  .update-modal p {
+    color: #a0ff8f;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .update-modal span {
+    padding: 0 2rem;
+    margin-bottom: 2rem;
+    color: rgba(255,255,255,0.85);
+    font-size: 1rem;
+  }
+  
+  /* -------------------------
+     Modal Buttons
+  ------------------------- */
+  .updatemodal-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .updatemodal-buttons button {
+    flex: 1;
+    border: none;
+    border-radius: 18px;
+    padding: 0.7rem 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+  }
+  
+  /* Go to Home - secondary */
+  .go-to-home-page-button-updatemodal {
+    background: rgba(255, 255, 255, 0.15) !important;
+    color: white;
+    &:hover {
+      background: rgba(255, 255, 255, 0.3) !important;
+      transform: scale(1.05);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.4) !important;
+    }
+  }
+  
+  /* See Logged Experiences - primary CTA */
+  .see-logged-experiences-button-updatemodal {
+    background: white !important;
+    color: rgb(0, 0, 0);
+    &:hover {
+      background: white !important;
+      color: black;
+      transform: scale(1.05);
+      box-shadow: 0 12px 30px rgba(255, 255, 255, 0.5) !important;
+    }
+  }
+  

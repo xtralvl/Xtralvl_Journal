@@ -83,7 +83,10 @@ export default function App() {
 
   switch (currentPage) {
     case "home":
-      return <HomePage handlePage={handlePage} />;
+      return <HomePage
+      handlePage={handlePage}
+      savedExperiences = {savedExperiences}
+      />;
 
     case "faq":
       return <FAQPage handlePage={handlePage} />;

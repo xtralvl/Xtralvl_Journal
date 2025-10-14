@@ -1,5 +1,7 @@
 .searcher-container {
-    display: flex;
+    display: grid;
+    grid-template-columns: 70% 1fr;
+    grid-template-rows: 1fr;
     align-items: center;
     justify-content: space-between;
     padding: 0.6rem 1rem;
@@ -17,12 +19,15 @@
   /* 🔍 Search form */
   .searcher-container form {
     display: flex;
+    grid-column: 1;
+    grid-row: 1;
     align-items: center;
     border-radius: 8px;
     overflow: hidden;
     background: rgba(255, 255, 255, 0.15);
     border: 1px solid rgba(255, 255, 255, 0.25);
     transition: all 0.3s ease;
+    
     
   }
   
@@ -61,12 +66,78 @@
     align-items: center;
     justify-content: center;
     transition: background 0.3s ease, transform 0.2s ease;
+    width: 3rem;
+    justify-self: flex-end;
   }
   
   .searcher-container button:hover {
     background: rgba(255, 255, 255, 0.3);
     transform: scale(1.05);
   }
+
+  .results-dropdown-window {
+    background: rgba(255, 255, 255, 0.15);
+    border: none;
+    border-radius: 0 0 8px 8px;
+    display: flex;
+    flex-direction: column;
+    padding: .8rem .1rem .2rem 0;
+    
+
+    ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin: 0;
+      padding: 0;
+
+
+      li {
+        text-decoration: underline;
+        margin: .4rem 0 0.2rem .5rem;
+
+        a {
+          color: white;
+        }
+
+      }
+    }
+
+    .searcher-tooltip-container {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+
+      p {
+        font-size: .8rem;
+        margin: 0 0 0 .5rem;
+      }
+    }
+
+    .tooltip-button {
+      background: none !important;
+      align-self: flex-end !important;
+      justify-self: flex-end !important;
+      margin-top: 0;
+
+
+      img {
+        width: 1rem;
+        filter: invert(100%);
+        opacity: .7;
+      }
+    }
+  }
+
+  .results-dropdown-window-show {
+    display: flex;
+  };
+
+  .results-dropdown-window-hide {
+    display: none;
+  };
+
   
   .submit-button img {
     width: 1rem;
@@ -76,6 +147,8 @@
   
   /* ❓ FAQ button */
   .faq-button {
+    grid-column: 2;
+    grid-row: 1;
     background: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.25);
     border-radius: 10px;
@@ -93,4 +166,40 @@
     border-color: rgba(255, 255, 255, 0.35);
     transform: translateY(-1px);
   }
+
+  @media (min-width: 600px) {
+
+    .searcher-container form,
+    .results-dropdown-window {
+      width: 80%;
+    }
+
+  }
   
+  @media (min-width: 800px) {
+
+    .searcher-container form,
+    .results-dropdown-window {
+      width: 70%;
+    }
+
+  }
+  
+  @media (min-width: 1000px) {
+
+    .searcher-container form,
+    .results-dropdown-window {
+      width: 50%;
+    }
+
+  }
+
+  @media (min-width: 1300px) {
+
+    .searcher-container form,
+    .results-dropdown-window {
+      width: 30%;
+    }
+
+  }
+

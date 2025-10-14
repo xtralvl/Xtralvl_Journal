@@ -232,7 +232,7 @@ export default function EditExperiencePage({ experience, handlePage, handleUpdat
             <button onClick={handleshowCancelModal} className="cancel">
               Cancel
             </button>
-            <button onClick={handleUpdate} className="update">
+            <button  onClick={handleUpdate} className="update">
               Update
             </button>
           </div>
