@@ -44,7 +44,9 @@ export default function Searcher({handlePage, savedExperiences}: SearcherProps) 
         <>
         <div className="searcher-container">
             <form onSubmit={handleSubmit} action="">
-            <button className="submit-button" type="submit" ><img src="/search-icon.svg" alt="" /></button>
+                <div className="search-icon-decor">
+                    <img src="/search-icon.svg" alt="Search icon" />
+                </div>
             <input onChange={handleFiltering} type="text" placeholder="Search your experiences.."/>
             </form>
             <div className={`results-dropdown-window ${isFilteringActive ? "results-dropdown-window-show" : "results-dropdown-window-hide"}`} >

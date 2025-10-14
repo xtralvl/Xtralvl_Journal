@@ -27,8 +27,7 @@
     background: rgba(255, 255, 255, 0.15);
     border: 1px solid rgba(255, 255, 255, 0.25);
     transition: all 0.3s ease;
-    
-    
+    width: 75%;
   }
   
   .searcher-container form:hover {
@@ -39,8 +38,8 @@
   /* 🧭 Search input */
   .searcher-container input {
     border: none;
-    width: 12rem;
-    padding: 0.5rem 0.6rem;
+    width: 100%;
+    padding: 0.5rem 0rem;
     font-size: 0.9rem;
     background: transparent;
     color: #fffaf3;
@@ -56,24 +55,22 @@
     outline: none;
   }
   
-  /* 🔘 Search button */
-  .searcher-container button {
-    border: none;
-    background: rgba(255, 255, 255, 0.2);
-    padding: 0.6rem 0.6rem;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background 0.3s ease, transform 0.2s ease;
-    width: 3rem;
-    justify-self: flex-end;
-  }
-  
-  .searcher-container button:hover {
-    background: rgba(255, 255, 255, 0.3);
-    transform: scale(1.05);
-  }
+/* Decorative search icon */
+.search-icon-decor {
+  background: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  justify-self: flex-end;
+  border-radius: 4px; /* optional: similar to button look */
+}
+
+.search-icon-decor img {
+  width: 1rem;
+  filter: invert(100%);
+  opacity: 0.6;
+}
 
   .results-dropdown-window {
     background: rgba(255, 255, 255, 0.15);
@@ -159,6 +156,8 @@
     letter-spacing: 0.3px;
     cursor: pointer;
     transition: all 0.25s ease;
+    width: 4rem;
+    justify-self: flex-end;
   }
   
   .faq-button:hover {
@@ -171,7 +170,7 @@
 
     .searcher-container form,
     .results-dropdown-window {
-      width: 80%;
+      width: 75%;
     }
 
   }
@@ -180,7 +179,7 @@
 
     .searcher-container form,
     .results-dropdown-window {
-      width: 70%;
+      width: 60%;
     }
 
   }
@@ -189,7 +188,7 @@
 
     .searcher-container form,
     .results-dropdown-window {
-      width: 50%;
+      width: 40%;
     }
 
   }
