@@ -8,6 +8,8 @@ This keeps your personal journey organized and interactive.
 
 The app is **hosted on AWS** and built using **React, TypeScript, Vite, and SCSS**, making it fast, responsive, and ready for future expansions like serverless functions.
 
+**Scroll to the bottom for a brief video walkthrough.**
+
 ---
 
 ## Features
