@@ -8,7 +8,9 @@ This keeps your personal journey organized and interactive.
 
 The app is **hosted on AWS** and built using **React, TypeScript, Vite, and SCSS**, making it fast, responsive, and ready for future expansions like serverless functions.
 
-## See the live demo here: **[Live site](https://main.d75ibv00sviwk.amplifyapp.com/)**
+### See the live demo here: **[Live site](https://main.d75ibv00sviwk.amplifyapp.com/)**
+
+---
 
 ➡️ **Scroll to the bottom for a short video walkthrough** ⬅️
 
