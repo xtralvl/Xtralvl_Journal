@@ -26,9 +26,15 @@ The app is **hosted on AWS** and built using **React, TypeScript, Vite, and SCSS
 ## Screenshots
 
 ![Home Page](https://i.imgur.com/NejliAf.png)
-![FAQ and Generate Random](screenshots/faq.png)
+![Add new](https://i.imgur.com/4mI5abD.png)
+![Logged experiences](https://i.imgur.com/ucH29DT.png)
+![FAQ and Generate random experience](https://i.imgur.com/Gix9px9.png)
 
-> ⚠️ Make sure the screenshots are inside `public/screenshots` in your project, and they are committed to Git.  
+---
+
+## Video walkthrough
+
+![Click here to see the video on youtube](https://www.youtube.com/watch?v=FZCXOiX-kjM&list=PLs7FNjZ8E_YeSXhNivA502SdBLSNyS6ga)
 
 ---
 
