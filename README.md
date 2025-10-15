@@ -1,4 +1,4 @@
-# Xtralvl Journal
+# Xtralvl Journal 💯
 
 Xtralvl Journal is a modern, interactive experience logging app that I originally started **just for myself** to track my experiences and skills.  
 It allows you to log your adventures, search through past experiences, edit or delete entries, and even generate random experiences to inspire you.  
@@ -42,11 +42,10 @@ The app is **hosted on AWS** and built using **React, TypeScript, Vite, and SCSS
 
 ---
 
-
 ## Tech Stack
 
 - **Frontend:** React, TypeScript, Vite, SCSS
-- **Hosting / Backend:** AWS (Amplify / S3 / Lambda for future serverless functions)
+- **Hosting / Backend:** AWS (Amplify / S3 / Lambda for future serverless functions, but there is no backend implementation yet) 
 - **Styling & Animations:** SCSS with responsive grid and flex layouts
 - **State Management:** React `useState | useEffect` hooks
 
