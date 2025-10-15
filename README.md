@@ -48,6 +48,12 @@ The app is **hosted on AWS** and built using **React, TypeScript, Vite, and SCSS
 
 ---
 
+## Figma
+
+[Figma](https://www.figma.com/design/rt93WJJwtwFdF7uqrXvyUj/Explorer-s-Journal-app?node-id=0-1&t=FOn5DWQZJfOLIrKh-1)
+
+---
+
 ## Tech Stack
 
 - **Frontend:** React, TypeScript, Vite, SCSS
