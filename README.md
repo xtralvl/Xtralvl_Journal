@@ -33,11 +33,11 @@ The app is **hosted on AWS** and built using **React, TypeScript, Vite, and SCSS
 
 ### Home Page
 ![Home Page](https://i.imgur.com/NejliAf.png)
-### Add New Page
+### Add New Experience
 ![Add new](https://i.imgur.com/4mI5abD.png)
-### Logged Experiences Page
+### Logged Experiences
 ![Logged experiences](https://i.imgur.com/ucH29DT.png)
-### FAQ and Generate Random Experience Page
+### FAQ and Generate Random Experience
 ![FAQ and Generate random experience](https://i.imgur.com/Gix9px9.png)
 
 ---
