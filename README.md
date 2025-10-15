@@ -25,7 +25,7 @@ The app is **hosted on AWS** and built using **React, TypeScript, Vite, and SCSS
 
 ## Screenshots
 
-# Home Page
+### Home Page
 ![Home Page](https://i.imgur.com/NejliAf.png)
 ![Add new](https://i.imgur.com/4mI5abD.png)
 ![Logged experiences](https://i.imgur.com/ucH29DT.png)
