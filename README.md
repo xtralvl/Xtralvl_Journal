@@ -25,7 +25,7 @@ The app is **hosted on AWS** and built using **React, TypeScript, Vite, and SCSS
 
 ## Screenshots
 
-![Home Page](screenshots/home.png)
+![Home Page]([screenshots/home.png](https://imgur.com/a/NEC64js))
 ![FAQ and Generate Random](screenshots/faq.png)
 
 > ⚠️ Make sure the screenshots are inside `public/screenshots` in your project, and they are committed to Git.  
