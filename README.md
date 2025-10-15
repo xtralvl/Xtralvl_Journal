@@ -1,4 +1,4 @@
-# Xtralvl Journal 💯
+# Xtralvl Journal 🧭
 
 Xtralvl Journal is a modern, interactive experience logging app that I originally started **just for myself** to track my experiences and skills.  
 It allows you to log your adventures, search through past experiences, edit or delete entries, and even generate random experiences to inspire you.  
