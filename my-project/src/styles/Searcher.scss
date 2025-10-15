@@ -40,7 +40,7 @@
     border: none;
     width: 100%;
     padding: 0.5rem 0rem;
-    font-size: 0.9rem;
+    font-size: 0.7rem;
     background: transparent;
     color: #fffaf3;
     transition: all 0.3s ease;
@@ -183,6 +183,13 @@
     transform: translateY(-1px);
   }
 
+  @media (min-width: 500px) {
+    .searcher-container input {
+      font-size: 0.9rem;
+    }
+  }
+
+
   @media (min-width: 600px) {
 
     .searcher-container form,
@@ -198,6 +205,11 @@
     .results-dropdown-window {
       width: 60%;
     }
+
+    .searcher-container input {
+      font-size: 1rem;
+    }
+
 
   }
   
