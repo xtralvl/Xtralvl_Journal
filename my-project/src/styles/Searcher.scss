@@ -115,6 +115,7 @@
         text-decoration: none;
         opacity: 0.8;
         transition: all 0.35s ease;
+        
 
         &:hover {
           color: #f0c000;
@@ -123,6 +124,13 @@
         }
       }
     }
+  }
+
+  .search-result-button {
+    background: none;
+    border: none;
+    color: white;
+    text-decoration: underline;
   }
 
   .searcher-tooltip-container {

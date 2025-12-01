@@ -1,4 +1,4 @@
- interface Experience {
+interface Experience {
   id: string;
   title: string;
   description?: string;
@@ -23,20 +23,24 @@ const formatDate = (isoDate?: string) => {
   return `${month}/${day}/${year.slice(-2)}`;
 };
 
-
 export default function ExperienceListElement(props: ExperienceListElementProps) {
   const exp = props.experience;
 
   return (
-    <div className="experience-element">
+    <article className="experience-element">
       <div className="experience-element-left-column">
         <h2>{exp.title}</h2>
+
         <div className="experience-element-date-and-location-container">
-          <h3>{formatDate(exp.date)}</h3>
-          <h4>{exp.location}</h4>
+          {exp.date && <time dateTime={exp.date}>{formatDate(exp.date)}</time>}
+          {exp.location && <p>{exp.location}</p>}
         </div>
+
         <div className="see-more-button-container">
-          <button onClick={() => props.handlePage("exp", exp.id)} className="see-more-button">
+          <button
+            onClick={() => props.handlePage("exp", exp.id)}
+            className="see-more-button"
+          >
             See more
           </button>
         </div>
@@ -47,14 +51,14 @@ export default function ExperienceListElement(props: ExperienceListElementProps)
           <img
             className="experience-element-right-column-photo experience-element-photo-column-shown"
             src={exp.photo}
-            alt={exp.title}
+            alt={`Photo of ${exp.title}`}
           />
         ) : (
-          <span className="experience-element-right-column-no-photo">
+          <p className="experience-element-right-column-no-photo">
             No photo yet
-          </span>
+          </p>
         )}
       </div>
-    </div>
+    </article>
   );
 }

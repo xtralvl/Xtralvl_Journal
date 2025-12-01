@@ -40,14 +40,21 @@ export default function Searcher({ handlePage, savedExperiences }: SearcherProps
   return (
     <div className="searcher-container">
       <div className="search-form-wrapper">
-        <form onSubmit={handleSubmit} action="" className={isFilteringActive ? "active" : ""}>
+        <form
+          onSubmit={handleSubmit}
+          action=""
+          className={isFilteringActive ? "active" : ""}
+          role="search"
+          aria-label="Search your experiences"
+        >
           <div className="search-icon-decor">
             <img src="/search-icon.svg" alt="Search icon" />
           </div>
           <input
             onChange={handleFiltering}
             type="text"
-            placeholder="Search your experiences.."
+            placeholder="Search your experiences..."
+            aria-label="Search experiences"
           />
         </form>
 
@@ -55,23 +62,37 @@ export default function Searcher({ handlePage, savedExperiences }: SearcherProps
           className={`results-dropdown-window ${
             isFilteringActive ? "results-dropdown-window-show" : "results-dropdown-window-hide"
           }`}
+          role="listbox"
+          aria-label="Search results"
         >
           <ul>
             {filteredResults.length > 0 ? (
               filteredResults.slice(0, 3).map((exp) => (
-                <li key={exp.id}>
-                  <a href="#" onClick={() => handlePage("exp", exp.id)}>
+                <li key={exp.id} role="option">
+                  <button
+                    onClick={() => handlePage("exp", exp.id)}
+                    className="search-result-button"
+                  >
                     {exp.title}
-                  </a>
+                  </button>
                 </li>
               ))
             ) : (
-              <li>No results found</li>
+              <li role="option">No results found</li>
             )}
           </ul>
+
           <div className="searcher-tooltip-container">
-            {isTooltipShown && <p>Only the first three results are always shown here.</p>}
-            <button onClick={showTooltips} className="tooltip-button">
+            {isTooltipShown && (
+              <p id="tooltip-text">
+                Only the first three results are always shown here.
+              </p>
+            )}
+            <button
+              onClick={showTooltips}
+              className="tooltip-button"
+              aria-describedby="tooltip-text"
+            >
               <img src="info-icon.svg" alt="Info" />
             </button>
           </div>
